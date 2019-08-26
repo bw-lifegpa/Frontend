@@ -6,8 +6,6 @@ import Dashboard from './components/Dashboard';
 import PrivateRoute from './components/PrivateRoute';
 import './App.css';
 
-import MiniDash from './components/MiniDash';
-
 function App() {
   return (
     <div className="App">

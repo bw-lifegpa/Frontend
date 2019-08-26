@@ -1,0 +1,94 @@
+.body {
+    display: flex;
+    justify-content: space-between;
+}
+
+.dashboard-container {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+
+    height: 100vh;
+}
+
+.dashboard-widgets {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+
+    width: 50vw;
+    padding-right: 181px;
+}
+
+.dashboard-nav-buttons {
+    display: flex;
+    justify-content: space-between;
+
+    width: 100%;
+
+    h2 {
+        text-align: center;
+    }
+
+    .dashboard-button {
+        width: 221px;
+        height: 222px;
+        border: 1px solid black;
+        border-radius: 50%;
+    }
+}
+
+.dashboard-profile {
+    margin-left: 92px;
+    text-align: center;
+
+    .profile-picture {
+        height: 313px;
+        width: 313px;
+        border: 1px solid black;
+        border-radius: 50%;
+    }
+}
+
+.minidash-container {
+    display: flex;
+    flex-direction: column;
+    box-shadow: 0 10px 20px rgba(0,0,0,0.19), 
+    0 6px 6px rgba(0,0,0,0.23);
+    width: 100%;
+    border-radius: 30px;
+    padding: 10px 20px;
+    margin-bottom: 10px;
+
+    .progress-bar-container {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+    
+    .title-container {
+        display: flex;
+        flex-direction: column;
+        align-content: flex-start;
+    }
+    
+    .title-container h6 {
+        margin: 10px 0;
+    }
+    
+    .social-icon-container {
+        display: flex;
+        flex-direction: column;
+        align-items: flex-end;
+    }
+    
+    .social-icon-container h5 {
+        font-size: 15px;
+        margin-bottom: 10px;
+    }
+    
+    .social-icons {
+        padding: 10px 30px;
+        font-size: 30px;
+    }    
+}
