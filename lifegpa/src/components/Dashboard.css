@@ -1,0 +1,41 @@
+.body {
+    height: 72.593vh;
+    display: flex;
+    justify-content: space-between;
+}
+
+.dashboard-button {
+    width: 222px;
+    height: 222px;
+    border: 1px solid black;
+}
+
+.dashboard-nav-buttons {
+    display: flex;
+    justify-content: space-between;
+    margin-right: 181px;
+}
+
+.dashboard-profile-view {
+    margin-left: 92px;
+}
+
+.dashboard-overview {
+    display: flex;
+    justify-content: space-between;
+}
+
+.profile-picture {
+    height: 313px;
+    width: 313px;
+    border: 1px solid black;
+}
+
+.dashboard-tracker-placeholder {
+    width: 1011px;
+    height: 340px;
+    border: 1px solid black;
+    border-radius: 30px;
+    margin-right: 181px;
+    margin-bottom: 71px;
+}
