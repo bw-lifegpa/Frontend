@@ -1,0 +1,34 @@
+.login-page{
+    border: 2px solid red;
+    width: 600px;
+    margin: 0 25%;
+    background: white;
+    position: absolute;
+    top: 40px;
+
+}
+.login-header{
+    font-size: 1.6rem
+}
+.login-form-field{
+    display: flex;
+    flex-direction: column; 
+    margin: 0 20%;
+}
+.form-field{
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    padding: 2%;
+}
+.button{
+    border-radius: 10px;
+    width: 202px;
+    margin: 31px 0 20px 50px;
+    height: 42px;
+}
+input{
+    width: 80%;
+    border-radius: 4px;
+    height: 30px;
+}
