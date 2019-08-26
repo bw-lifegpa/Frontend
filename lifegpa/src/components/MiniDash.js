@@ -7,7 +7,7 @@ import "../App.css";
 import { CircularProgressbar } from "react-circular-progressbar";
 import "react-circular-progressbar/dist/styles.css";
 
-const percentage = 66;
+const percentage = 60;
 
 // Can use browser detection logic here to determine this instead
 const needDominantBaselineFix = true;
