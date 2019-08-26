@@ -1,11 +1,42 @@
 import React from 'react';
 
-const Dashboard = () => {
-    return(
-        <div>
-            this is the Dashboard component
+import './Dashboard.css'
+
+import Header from './Header';
+import MiniDash from './MiniDash';
+import Footer from './Footer';
+
+export default function Dashboard() {
+    return (
+        <div className="dashboard-container">
+            <Header />
+            <div className="body">
+                <div className="dashboard-overview">
+                    <div className="dashboard-profile-view">
+                        <div className="profile-picture">
+                        </div>
+                        <h1>Your Name</h1>
+                        <h3>View Account</h3>
+                    </div>
+                </div>
+                <div className="dashboard-widgets">
+                    <div className="dashboard-tracker-placeholder">
+                        <MiniDash />
+                    </div>
+                    <div className="dashboard-nav-buttons">
+                        <div className="dashboard-button track">
+                            Track
+                        </div>
+                        <div className="dashboard-button challenges">
+                            Challenges
+                        </div>
+                        <div className="dashboard-button advice">
+                            Advice
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <Footer />
         </div>
     )
 }
-
-export default Dashboard;
