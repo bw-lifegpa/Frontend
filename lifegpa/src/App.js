@@ -6,8 +6,12 @@ import Dashboard from './components/Dashboard';
 import PrivateRoute from './components/PrivateRoute';
 import './App.css';
 
+import MiniDash from './components/MiniDash';
+import Dashboard from './components/Dashboard';
+
 function App() {
   return (
+<<<<<<< HEAD
     <Router>
       <div className="App">
         <div className='login-form-page'>
@@ -18,6 +22,11 @@ function App() {
     </Router>
 
 
+=======
+    <div className="App">
+      <Dashboard />
+    </div>
+>>>>>>> origin/bobby-hall
   );
 }
 
