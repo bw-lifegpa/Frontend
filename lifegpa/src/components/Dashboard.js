@@ -28,7 +28,8 @@ export default function Dashboard() {
         <div className="dashboard-container">
             <Header />
             <div className="body">
-                <DashboardProfile 
+                <DashboardProfile
+                    avatar={userData.avatar}
                     first_name={userData.first_name}
                     last_name={userData.last_name}
                 />
