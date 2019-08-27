@@ -3,10 +3,8 @@ import { Route } from 'react-router-dom';
 import FormikLogin from './components/Login';
 import Dashboard from './components/Dashboard';
 import PrivateRoute from './components/PrivateRoute';
-import './App.css';
-import Dashboard from './components/Dashboard';
-import Nav from './components/Nav';
-import PrivateRoute from './components/PrivateRoute';
+
+// import Nav from './components/Nav';
 import './App.css';
 
 function App() {
