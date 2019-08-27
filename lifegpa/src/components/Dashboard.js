@@ -1,39 +1,42 @@
-import React from 'react';
 
+import React, { useState, useEffect } from 'react';
 import './Dashboard.css'
 
 import Header from './Header';
+import DashboardButtons from './DashboardButtons';
+import DashboardProfile from './DashboardProfile';
 import MiniDash from './MiniDash';
 import Footer from './Footer';
+import axios from 'axios';
 
 export default function Dashboard() {
+    const [userData, setUserData] = useState([]);
+
+    useEffect(() => {
+        axios
+            .get('https://reqres.in/api/users/2')
+            .then(response => {
+                setUserData(response.data.data);
+            })
+            .catch(error => {
+                console.error('Server Error', error);
+            })
+    }, []);
+
+    console.log(userData);
+    
     return (
         <div className="dashboard-container">
             <Header />
             <div className="body">
-                <div className="dashboard-overview">
-                    <div className="dashboard-profile-view">
-                        <div className="profile-picture">
-                        </div>
-                        <h1>Your Name</h1>
-                        <h3>View Account</h3>
-                    </div>
-                </div>
+                <DashboardProfile
+                    avatar={userData.avatar}
+                    first_name={userData.first_name}
+                    last_name={userData.last_name}
+                />
                 <div className="dashboard-widgets">
-                    <div className="dashboard-tracker-placeholder">
-                        <MiniDash />
-                    </div>
-                    <div className="dashboard-nav-buttons">
-                        <div className="dashboard-button track">
-                            Track
-                        </div>
-                        <div className="dashboard-button challenges">
-                            Challenges
-                        </div>
-                        <div className="dashboard-button advice">
-                            Advice
-                        </div>
-                    </div>
+                    <MiniDash />
+                    <DashboardButtons />
                 </div>
             </div>
             <Footer />

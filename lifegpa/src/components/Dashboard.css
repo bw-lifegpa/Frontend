@@ -1,41 +1,141 @@
 .body {
-    height: 72.593vh;
-    display: flex;
-    justify-content: space-between;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
 }
 
-.dashboard-button {
-    width: 221px;
-    height: 222px;
-    border: 1px solid black;
+.dashboard-container {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  height: 100vh;
+}
+
+.dashboard-widgets {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-align: end;
+      -ms-flex-align: end;
+          align-items: flex-end;
+  width: 50vw;
+  padding-right: 181px;
 }
 
 .dashboard-nav-buttons {
-    display: flex;
-    justify-content: space-between;
-    margin-right: 181px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  width: 100%;
 }
 
-.dashboard-profile-view {
-    margin-left: 92px;
+.dashboard-nav-buttons h2 {
+  text-align: center;
 }
 
-.dashboard-overview {
-    display: flex;
-    justify-content: space-between;
+.dashboard-nav-buttons .dashboard-button {
+  width: 221px;
+  height: 222px;
+  border: 1px solid black;
+  border-radius: 50%;
 }
 
-.profile-picture {
-    height: 313px;
-    width: 313px;
-    border: 1px solid black;
+.dashboard-profile {
+  margin-left: 92px;
+  text-align: center;
 }
 
-.dashboard-tracker-placeholder {
-    width: 1011px;
-    height: 340px;
-    border: 1px solid black;
-    border-radius: 30px;
-    margin-right: 181px;
-    margin-bottom: 71px;
+.dashboard-profile .profile-picture {
+  height: 313px;
+  width: 313px;
+  border-radius: 50%;
 }
+
+.minidash-container {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  -webkit-box-shadow: 0 10px 20px rgba(0, 0, 0, 0.19), 0 6px 6px rgba(0, 0, 0, 0.23);
+          box-shadow: 0 10px 20px rgba(0, 0, 0, 0.19), 0 6px 6px rgba(0, 0, 0, 0.23);
+  width: 100%;
+  border-radius: 30px;
+  padding: 10px 20px;
+  margin-bottom: 2rem;
+}
+
+.minidash-container .progress-bar-container {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  margin: 80px 0;
+}
+
+.minidash-container .title-container {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -ms-flex-line-pack: start;
+      align-content: flex-start;
+}
+
+.minidash-container .title-container h6 {
+  margin: 10px 0;
+}
+
+.minidash-container .social-icon-container {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-pack: end;
+      -ms-flex-pack: end;
+          justify-content: flex-end;
+}
+
+.minidash-container .social-icon-container h5 {
+  font-size: 15px;
+  margin-bottom: 10px;
+}
+
+.minidash-container .social-icons {
+  padding: 10px 30px;
+  font-size: 30px;
+}
+/*# sourceMappingURL=Dashboard.css.map */
