@@ -1,5 +1,34 @@
 .footer {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
     height: 10vh;
-    background-color: #F7F7F7;
+    background-color: #FAE9C6;
+    color: black;
     border-top: 1px solid black;
+}
+
+.footer-left {
+    display: flex;
+    flex-direction: column;
+    margin-left: 1rem;
+    text-align: center;
+}
+
+.footer-right {
+    display: flex;
+    flex-direction: column;
+    margin-right: 1rem;
+    text-align: center;
+}
+
+.footer a {
+    color: black;
+    text-decoration: underline;
+    text-underline-position: under;
+}
+
+.footer a:visited {
+    text-decoration: none;
 }
