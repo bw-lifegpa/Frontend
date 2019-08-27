@@ -1,14 +1,11 @@
 import React, { useState, useEffect } from 'react';
-import './Dashboard.css'
+import './Challenges.css'
 
 import Header from './Header';
-import DashboardButtons from './DashboardButtons';
-import DashboardProfile from './DashboardProfile';
-import MiniDash from './MiniDash';
 import Footer from './Footer';
 import axios from 'axios';
 
-export default function Dashboard() {
+export default function Challenges() {
     const [userData, setUserData] = useState([]);
 
     useEffect(() => {
@@ -25,18 +22,10 @@ export default function Dashboard() {
     console.log(userData);
     
     return (
-        <div className="dashboard-container">
+        <div className="challenges-container">
             <Header />
             <div className="body">
-                <DashboardProfile
-                    avatar={userData.avatar}
-                    first_name={userData.first_name}
-                    last_name={userData.last_name}
-                />
-                <div className="dashboard-widgets">
-                    <MiniDash />
-                    <DashboardButtons />
-                </div>
+                
             </div>
             <Footer />
         </div>
