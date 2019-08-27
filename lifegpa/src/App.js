@@ -7,6 +7,8 @@ import PrivateRoute from './components/PrivateRoute';
 // import Nav from './components/Nav';
 import './App.css';
 
+import TrackGoals from './components/TrackGoals';
+
 function App() {
   return (
 
