@@ -146,9 +146,10 @@ const FormikSignUpForm = withFormik({
       })
   }),
 
-  handleSubmit(values, { setStatus }) {
+  handleSubmit(values, { resetForm, setStatus }) {
+    resetForm();
     axios
-      .post("https://reqres.in/api/users/", values)
+      .post("https://lifegpa-api.herokuapp.com/auth/register", values)
       .then(res => {
         setStatus(res.data);
         console.log(res.data);
