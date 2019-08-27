@@ -1,6 +1,7 @@
 import React from 'react';
 
 export default function DashboardProfile() {
+
     return (
         <div className="dashboard-profile-container">
             <div className="dashboard-profile">
