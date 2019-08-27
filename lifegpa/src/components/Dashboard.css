@@ -51,10 +51,11 @@
 }
 
 .dashboard-nav-buttons .dashboard-button {
-  width: 221px;
-  height: 222px;
-  border: 1px solid black;
+  width: 220px;
+  height: 220px;
   border-radius: 50%;
+  -webkit-box-shadow: 0 3px 10px rgba(0, 0, 0, 0.19), 0 6px 6px rgba(0, 0, 0, 0.23);
+          box-shadow: 0 3px 10px rgba(0, 0, 0, 0.19), 0 6px 6px rgba(0, 0, 0, 0.23);
 }
 
 .dashboard-profile {

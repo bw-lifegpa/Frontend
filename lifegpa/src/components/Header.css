@@ -4,7 +4,6 @@
 
     height: 10vh;
     background-color: #FAE9C6;
-    border-bottom: 1px solid black;
 }
 
 .logo {
@@ -13,5 +12,5 @@
     margin-left: 12px;
     border-radius: 6px;
     box-shadow: 0 3px 10px rgba(0,0,0,0.19), 
-    0 6px 6px rgba(0,0,0,0.23);
+    0 3px 6px rgba(0,0,0,0.23);
 }
