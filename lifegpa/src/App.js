@@ -12,9 +12,9 @@ function App() {
 
       <div className="App">
         <div className='login-form-page'>
-          <Route extact path ='/' component={FormikLogin} />
+          <Route exact path ='/' component={FormikLogin} />
         </div>
-        <PrivateRoute extact path='/dashboard' component={Dashboard} />
+        <PrivateRoute exact path='/dashboard' component={Dashboard} />
       </div>
   );
 }
