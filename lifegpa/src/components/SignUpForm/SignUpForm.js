@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from "react";
-import { Form, Field, withFormik } from "formik";
+import { Form, Field, withFormik} from "formik";
 import * as Yup from "yup";
+import {withRouter} from "react-router-dom";
 import axios from "axios";
 
 
@@ -35,7 +36,7 @@ const SignupForm = ({ errors, touched, values, handleSubmit, status }) => {
       <Form>
         <div>
           First Name
-          <Field type="text" name="firstname" placeholder="" />
+          <Field type="text" name="first_name" placeholder="" />
           {touched.firstname && errors.firstname && (
             <p className="error">{errors.firstname}</p>
           )}
@@ -43,7 +44,7 @@ const SignupForm = ({ errors, touched, values, handleSubmit, status }) => {
 
         <div>
           Last Name
-          <Field type="text" name="lastname" placeholder="" />
+          <Field type="text" name="last_name" placeholder="" />
           {touched.lastname && errors.lastname && (
             <p className="error">{errors.lastname}</p>
           )}
@@ -70,7 +71,7 @@ const SignupForm = ({ errors, touched, values, handleSubmit, status }) => {
           <Field 
             type="password"
             name="password"
-            placeholder="Must be 8 characters long"
+            placeholder="Must be 7 characters long"
           />
           {touched.password && errors.password && (
             <p className="error">{errors.password}</p>
@@ -119,13 +120,15 @@ const SignupForm = ({ errors, touched, values, handleSubmit, status }) => {
 };
 
 const FormikSignUpForm = withFormik({
-  mapPropsToValues({ username, email, password, confirmPassword, tos }) {
+  mapPropsToValues({ username, email, password, confirmPassword, tos, first_name, last_name }) {
     return {
       username: username || "",
       email: email || "",
       password: password || "",
       confirmPassword: confirmPassword || "",
-      tos: tos || false
+      tos: tos || false,
+      first_name: first_name || "",
+      last_name: last_name || ""
     };
   },
 
@@ -136,23 +139,24 @@ const FormikSignUpForm = withFormik({
 
     password: Yup.string()
       .required()
-      .min(2, "Seems a bit short")
-      .max(10, "Try a shorter password"),
-
+      .min(7, "Seems a bit short, minimum of 7"),
+      
     confirmPassword: Yup.string()
       .required("Please confirm password")
       .test("passwords-match", "Passwords must match", function(value) {
-        return this.parent.password === value;
-      })
+        return this.parent.password === value}),
+
+    tos: Yup.boolean()
+        .oneOf([true], "Users must accept the Terms of Service"), 
   }),
 
-  handleSubmit(values, { resetForm, setStatus }) {
-    resetForm();
+  handleSubmit(values, {props}) {
+    
     axios
       .post("https://lifegpa-api.herokuapp.com/auth/register", values)
       .then(res => {
-        setStatus(res.data);
         console.log(res.data);
+        props.history.push("/");
       })
       .catch(err => console.log(err.response));
   }
