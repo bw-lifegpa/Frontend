@@ -4,45 +4,34 @@ import { NavLink, Route, Router } from 'react-router-dom';
 
 import Header from './Header';
 import Footer from './Footer';
+import GoalCard from './GoalCard';
 
 import './ViewGoals.css';
 
-const ViewGoals = (props) => {
-const [userGoals, setUserGoals] = useState([{}])
+const ViewGoals = ({ goalList }) => {
+    const [UserGoals, setUserGoals] = useState([])
 
-const id = props.match.params.id;
+    useEffect(() => {
+        axios.get(`https://lifegpa-api.herokuapp.com/habits/`)
+        .then( res => {
+            console.log(res.data)
+            const goalList = res.data;
+            setUserGoals(goalList)
+        })
+        .catch(error => console.log(error.response.message))
+    }, [])
 
-useEffect(() => {
-    axios.get(`https://lifegpa-api.herokuapp.com/users/${id}/habits/`)
-    .then( res => {
-        console.log(res.data)
-        const goal = res.data;
-        setUserGoals(goal)
-    })
-    .catch(error => console.log(error.response.message))
-}, [])
 
 return (
     <div>
         <Header />
 
-        {userGoals.map((user, index) => {
+        {UserGoals.map((goal, index) => {
             return (
-                <>
-                <div key={index} className="goal-container">
-                    <div className='goal'>
-                        <h1 className="goal-name">{user.name}</h1>
-                        <h3 className="goal-description">{user.description}</h3>
-                        <div className='button-container'>
-                            <Link to='/edit-goal'>
-                                <NavLink className='edit-goal'>Edit</NavLink>
-                            </Link>
-                            <NavLink className='delete-goal'>Delete</NavLink>
-                        </div>
-                    </div>
+                <div key={index} className='goal-list'>
+                    <GoalCard goal={goal} id={goal.id} />
                 </div>
-                </>
-              );
+            )
         })}
 
         <Footer />

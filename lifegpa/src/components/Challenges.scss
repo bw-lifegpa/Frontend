@@ -38,8 +38,19 @@
     }
 
     form {
+        display: flex;
+        align-items: center;
+
         margin-left: 1rem;
-        width: 69%;
+
+        label {
+            width: 60%;
+        }
+
+        img {
+            width: 36px;
+            height: 36px;
+        }
 
         input {
             padding-left: 0.5rem;

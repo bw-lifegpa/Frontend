@@ -11,7 +11,7 @@
     align-items: center;
     justify-content: space-between;
 
-    width: 95vw;
+    width: 100vw;
 }
 
 .logo {
@@ -26,4 +26,5 @@
 .sign-out {
     height: 40px;
     width: 45px;
+    margin-right: 100px;
 }
