@@ -2,7 +2,7 @@ import React from 'react';
 import { withFormik, Form, Field } from "formik";
 import { withRouter } from 'react-router-dom';
 import * as Yup from "yup";
-import axiosWithAuth from '../utilities/axiosWithAuth'
+import { axiosWithAuth } from '../utilities/axiosWithAuth'
 
 function NewGoalForm({ values, errors, touched, isSubmitting }) {
 

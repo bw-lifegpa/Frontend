@@ -44,12 +44,13 @@ const FormikLogin = withRouter(withFormik({
     handleSubmit(users, {props}){
         axios.post('https://lifegpa-api.herokuapp.com/auth/login', users)
         .then(res => {
-            console.log('login from ', res)
-            localStorage.setItem('token', res.data.token)
-            props.history.push('/dashboard')
+            console.log('login from ', res);
+            localStorage.setItem('token', res.data.token);
+            const user_id = res.data.id;
+            props.history.push(`/dashboard/${user_id}`);
         })
         .catch(err => console.log(err))
     }
 })(Login));
 
-export default FormikLogin
+export default FormikLogin;
