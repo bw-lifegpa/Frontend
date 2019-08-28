@@ -20,7 +20,7 @@ function App() {
         </div>
         <PrivateRoute exact path='/dashboard' component={Dashboard} />
       </div>
-    </div>
+   
   );
 }
 
