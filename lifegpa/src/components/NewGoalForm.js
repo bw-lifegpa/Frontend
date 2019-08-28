@@ -1,7 +1,8 @@
 import React from 'react';
 import { withFormik, Form, Field } from "formik";
+import { withRouter } from 'react-router-dom';
 import * as Yup from "yup";
-import axios from 'axios';
+import axiosWithAuth from '../utilities/axiosWithAuth'
 
 function NewGoalForm({ values, errors, touched, isSubmitting }) {
 
@@ -17,7 +18,13 @@ function NewGoalForm({ values, errors, touched, isSubmitting }) {
           {touched.category && errors.category && <p>{errors.category}</p>}
           <Field component="select" name="category">
             <option value=''>Goal Category</option>
-            <option value='fitness'>Fitness</option>
+            <option value='exercise'>Exercise</option>
+            <option value='health'>Health</option>
+            <option value='sleep'>Sleep</option>
+            <option value='housekeeping'>Housekeeping</option>
+            <option value='family'>Family</option>
+            <option value='dating'>Dating</option>
+            <option value='school'>School</option>
           </Field>
         </div>
         <div className="description">
@@ -45,7 +52,7 @@ function NewGoalForm({ values, errors, touched, isSubmitting }) {
     );
   }
   
-  const FormikNewGoalForm = withFormik({
+  const FormikNewGoalForm = withRouter(withFormik({
     mapPropsToValues({ goal, category, description, start_date, end_date_check, end_date }) {
       return {
         goal: goal || "",
@@ -60,25 +67,25 @@ function NewGoalForm({ values, errors, touched, isSubmitting }) {
       goal: Yup.string()
         .min(2, "Goal name must be at least 2 characters")
         .max(25, "Goal name cannot be longer than 25 characters")
-        .required("Goal name is required")
+        .required("Goal name is required"),
+      category: Yup.string()
+        .required("Category is required"),
+      start_date: Yup.date()
+        .required("Start Date is required")
     }),
-    handleSubmit(values, { resetForm, setSubmitting }) {
-        console.log(values);
-        resetForm();
+    handleSubmit(values, { props }, { setSubmitting }) {
+    axiosWithAuth()
+        .post(`/users/${props.match.params.id}/habits`, values)
+        .then(res => {
+        console.log(res.message);
         setSubmitting(false);
-    // axios
-    //     .post("#", values)
-    //     .then(res => {
-    //     console.log('Goal added!', res);
-    //     setStatus(res.data);
-    //     resetForm();
-    //     setSubmitting(false);
-    //     })
-    //     .catch(err => {
-    //     console.log('Request failed', err);
-    //     setSubmitting(false);
-    //     });
+        props.history.push('/dashboard')
+        })
+        .catch(err => {
+        console.log('Request failed', err);
+        setSubmitting(false);
+        });
     }
-  })(NewGoalForm);
+  })(NewGoalForm));
   
   export default FormikNewGoalForm;
