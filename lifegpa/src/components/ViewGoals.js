@@ -34,7 +34,9 @@ return (
                         <h1 className="goal-name">{user.name}</h1>
                         <h3 className="goal-description">{user.description}</h3>
                         <div className='button-container'>
-                            <NavLink className='edit-goal'>Edit</NavLink>
+                            <Link to='/edit-goal'>
+                                <NavLink className='edit-goal'>Edit</NavLink>
+                            </Link>
                             <NavLink className='delete-goal'>Delete</NavLink>
                         </div>
                     </div>
