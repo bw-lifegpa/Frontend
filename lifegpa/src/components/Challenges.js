@@ -5,7 +5,8 @@ import { connect } from 'react-redux';
 
 import Header from './Header';
 import Footer from './Footer';
-import Eye from '../designfiles/eye-img.png'
+import Eye from '../designfiles/eye-img.png';
+import MagnifyingGlass from '../designfiles/magnifying-glass.png';
 
 function Challenges(props) {
 
@@ -34,6 +35,7 @@ function Challenges(props) {
                                 value="Search by name or category"
                             />
                         </label>
+                        <img src={MagnifyingGlass} />
                     </form>
                     <div className="challenges-suggested">
                         <h2>Suggested for you</h2>

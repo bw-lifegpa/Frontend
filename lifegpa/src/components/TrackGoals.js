@@ -1,8 +1,6 @@
-import React, { useEffect } from 'react';
+import React from 'react';
 import { FaRegEye, FaPlusCircle, FaComments, FaArrowLeft  } from 'react-icons/fa';
 import { Link } from 'react-router-dom';
-import { connect } from 'react-redux';
-import { fetchUser } from '../actions';
 
 import TrackDatePicker from './TrackDatePicker';
 import MiniDash from './MiniDash';
@@ -12,11 +10,7 @@ import Footer from './Footer';
 import './TrackGoals.css'
 
 
-const TrackGoals = (props) => {
-
-    useEffect(() => {
-        props.fetchUser(props.match.params.id);
-    }, []);
+export default function TrackGoals (props) {
 
     return (
         <>
@@ -31,11 +25,11 @@ const TrackGoals = (props) => {
                 
                 <div className='track-goals'>
                     
-                    <Link to={`/goals/${props.id}`}>
+                    <Link to={`/goals/${props.match.params.id}`}>
                         <FaRegEye/> <h3>View Goals</h3>
                     </Link>
                     
-                    <Link to={`/create/${props.id}`}>
+                    <Link to={`/create/${props.match.params.id}`}>
                         <FaPlusCircle/><h3>Create New Goal</h3>
                     </Link>
                     
@@ -60,17 +54,4 @@ const TrackGoals = (props) => {
         </div>
         </>
     )
-}
-const mapStateToProps = state => {
-    return {
-        error: state.error,
-        isFetching: state.isFetching,
-        id: state.id,
-        username: state.username,
-        first_name: state.first_name,
-        last_name: state.last_name,
-        email: state.email
-    }
-}
-
-export default connect(mapStateToProps, { fetchUser })(TrackGoals);
+};
