@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import { connect } from 'react-redux'
-import { fetchData, addData, deleteData, editData } from '../store/actions'
+import { editGoal, fetchGoal } from '../store/actions'
 
 
 function EditForm (props) {
@@ -76,5 +76,5 @@ const mapStateToProps = state => {
 
 export default connect(
     mapStateToProps,
-    { fetchData, addData, deleteData, editData }
+    { fetchGoal, editGoal }
 )(EditForm)
