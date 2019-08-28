@@ -6,6 +6,7 @@
     border-radius: 10px;
     padding: 20px;
     margin: 20px;
+    background: #f1f1f1;
 }
 
 .button-container {
@@ -14,7 +15,6 @@
     padding: 10px 20px;
 }
 
-.edit-goal {
-    text-decoration: none;
-    
+.button {
+    padding: 10px;
 }

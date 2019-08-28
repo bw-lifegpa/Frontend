@@ -1,18 +1,20 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { FaRegEye, FaPlusCircle, FaComments, FaArrowLeft  } from 'react-icons/fa';
-import { BrowserRouter as Router, Link, Route } from 'react-router-dom';
+import { NavLink, Route } from 'react-router-dom';
+import axios from 'axios';
 
 import TrackDatePicker from './TrackDatePicker';
 import MiniDash from './MiniDash';
 import Header from './Header';
 import Footer from './Footer';
 import ViewGoals from './ViewGoals';
+import GoalCard from './GoalCard';
 
 import './TrackGoals.css'
 
 
 const TrackGoals = () => {
-    const [goals, setgoals] = useState([])
+    const [goals, setGoals] = useState([]) 
 
     return (
         <>
@@ -21,44 +23,51 @@ const TrackGoals = () => {
         
             <div className='track-goals-container'>
             
-            <div className='track-goals-header'>
-                <h1>Let's manage the heck out of those goals!</h1>
-                <h3>What would you like to do today?</h3>
-                
-                <div className='track-goals'>
+                <div className='track-goals-header'>
+                    <h1>Let's manage the heck out of those goals!</h1>
+                    <h3>What would you like to do today?</h3>
                     
-                    <Link to='/viewgoals'>
-                        <FaRegEye/> <h3>View Goals</h3>
-                    </Link>
-                    
-                    <Link to='/creategoal'>
-                        <FaPlusCircle/><h3>Create New Goal</h3>
-                    </Link>
-                    
-                    <Link  to='/gradefeeback'>
-                        <FaComments/><h3>Grade Feedback</h3>
-                    </Link>
-                    
-                    <TrackDatePicker />
-                </div>   
-            </div>
-            
-            <div className='mini-dash-container'>
-            
-                <div className='back-to-dash'>
-                    <FaArrowLeft/> Go back to dashboard
+                    <div className='track-goals'>
+                        
+                        <NavLink to={`/viewgoals`}>
+                            <FaRegEye/> <h3>View Goals</h3>
+                        </NavLink>
+                        
+                        <NavLink to='/creategoal'>
+                            <FaPlusCircle/><h3>Create New Goal</h3>
+                        </NavLink>
+                        
+                        <NavLink  to='/gradefeeback'>
+                            <FaComments/><h3>Grade Feedback</h3>
+                        </NavLink>
+                        
+                        <TrackDatePicker />
+                    </div>   
                 </div>
                 
-                <MiniDash />
+                <div className='mini-dash-container'>
+                
+                    <div className='back-to-dash'>
+                        <NavLink to='/dashboard'>
+                            <FaArrowLeft/> Go back to dashboard
+                        </NavLink>
+                    </div>
+                    
+                    <MiniDash />
+                </div>
+                
             </div>
-            </div>
-            <Footer />
         </div>
+
+        <Footer />
+
         <Route
-         path='/viewgoals/:id'
-         render={props => <ViewGoals {...props} goals={goals} />} />
+            exact 
+            path='/users/:id/viewgoals/'
+            render={props => <GoalCard {...props} goals={goals} />} 
+        />    
          
-         <Route exact path='/viewgoals/:id' component={ViewGoals} />
+         {/* <Route exact path='/viewgoals/:id' goals={goals} component={ViewGoals} /> */}
         </>
     )
 }
