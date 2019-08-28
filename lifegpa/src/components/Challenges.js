@@ -5,7 +5,8 @@ import './Challenges.css'
 import Header from './Header';
 import Footer from './Footer';
 import axios from 'axios';
-import Eye from '../designfiles/eye-img.png'
+import Eye from '../designfiles/eye-img.png';
+import MagnifyingGlass from '../designfiles/magnifying-glass.png';
 
 export default function Challenges() {
     const [userData, setUserData] = useState([]);
@@ -49,6 +50,7 @@ export default function Challenges() {
                                 value="Search by name or category"
                             />
                         </label>
+                        <img src={MagnifyingGlass} />
                     </form>
                     <div className="challenges-suggested">
                         <h2>Suggested for you</h2>
