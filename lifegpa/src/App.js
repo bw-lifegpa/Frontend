@@ -6,6 +6,7 @@ import Advice from "./components/Advice";
 import Dashboard from "./components/Dashboard";
 import Challenges from "./components/Challenges";
 import PrivateRoute from "./components/PrivateRoute";
+import TrackGoals from "./components/TrackGoals";
 import FormikSignUpForm from "./components/SignUpForm/SignUpForm";
 import Nav from "./components/Nav";
 
@@ -19,7 +20,9 @@ function App() {
   return (
       <div className="App">
         <Nav />
-        <Advice />
+        <Route path="/challenges" component={Challenges} />
+        <Route path="/advice" component={Advice} />
+        <Route path="/track" component={TrackGoals} />
         {/* <div className='login-form-page'>
           <Route exact path ='/' component={FormikLogin} />
         </div>
