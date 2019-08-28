@@ -4,20 +4,27 @@ import FormikLogin from './components/Login';
 import Dashboard from './components/Dashboard';
 import PrivateRoute from './components/PrivateRoute';
 
+import ViewGoals from './components/ViewGoals';
+
 // import Nav from './components/Nav';
 import './App.css';
 
-import TrackGoals from './components/TrackGoals';
-
 function App() {
   return (
+    <>
+     {/* <ViewGoals /> */}
 
-      <div className="App">
-        <div className='login-form-page'>
-          <Route extact path ='/' component={FormikLogin} />
-        </div>
-        <PrivateRoute extact path='/dashboard' component={Dashboard} />
-      </div>
+    <Route exact path='/viewgoals'
+      render={props => <ViewGoals {...props} />}
+    />
+    </>
+
+      // <div className="App">
+      //   <div className='login-form-page'>
+      //      <Route extact path ='/' component={FormikLogin} />
+      //   </div>
+      //     <PrivateRoute extact path='/dashboard' component={Dashboard} />
+      // </div> 
   );
 }
 
