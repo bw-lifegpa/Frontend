@@ -2,7 +2,7 @@ import React from 'react';
 import axios from 'axios';
 import { Form, Field, Formik, ErrorMessage } from 'formik';
 
-const EditForm =({user, updateUser, onClose }) => {
+export default function EditForm ({user, updateUser, onClose }) {
         // axiosWithAuth()
         //     .put(`https://lifegpa-api.herokuapp.com/edit-goal/${goalToEdit.id}`, goalToEdit)
         //     .then(res => {
@@ -17,8 +17,8 @@ const EditForm =({user, updateUser, onClose }) => {
         //     })
         //     .catch(eer => console.log(eer.message));
     return(
-        <div className='edit-page' onSubmit={saveEdit}>
-            <Dialog onClose={onClose}>
+        <div className='edit-page' >
+            {/* <Dialog onClose={onClose}>
                 <h2 className='edit-header'>Edit Me!</h2>
                 <Formik    
                 className='edit-form-field'
@@ -47,9 +47,9 @@ const EditForm =({user, updateUser, onClose }) => {
 
                     </Form>
                 )}
-                />
+                /> */}
 
-            </Dialog>
+            {/* </Dialog> */}
 
         </div>
     )
