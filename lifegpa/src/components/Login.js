@@ -21,7 +21,7 @@ function Login({ errors, touched }) {
                     Password: 
                     <Field type= 'password' name='password' placeholder='Password' />
                     </div>
-                <button className='button' type='submit'>Get Ro Tracking</button>
+                <button className='button' type='submit'>Get To Tracking</button>
 
             </Form>
 
@@ -45,6 +45,8 @@ const FormikLogin = withRouter(withFormik({
         axios.post('https://lifegpa-api.herokuapp.com/auth/login', users)
         .then(res => {
             console.log('login from ', res)
+            localStorage.setItem('token', res.data.token)
+            props.history.push('/dashboard')
         })
         .catch(err => console.log(err))
     }
