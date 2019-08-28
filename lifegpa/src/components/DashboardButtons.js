@@ -10,19 +10,19 @@ export default function DashboardButtons() {
         <div className="dashboard-nav-buttons">
             <NavLink to="/track">
                 <div className="dashboard-button-container">
-                    <img className="dashboard-button track" src={Track} />
+                    <img className="dashboard-button" src={Track} />
                     <h2>Track</h2>
                 </div>
             </NavLink>
             <NavLink to="/challenges">
                 <div className="dashboard-button-container">
-                    <img className="dashboard-button challenges" src={Challenges} />
+                    <img className="dashboard-button" src={Challenges} />
                     <h2>Challenges</h2>
                 </div>
             </NavLink>
             <NavLink to="/advice">
                 <div className="dashboard-button-container">
-                    <img className="dashboard-button challenges" src={Advice} />
+                    <img className="dashboard-button" src={Advice} />
                     <h2>Advice</h2>
                 </div>
             </NavLink>

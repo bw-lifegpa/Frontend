@@ -13,11 +13,11 @@ function App() {
 
       <div className="App">
         <Nav />
-        <Challenges />
+        <Route exact path="/challenges" component={Challenges} />
         {/* <div className='login-form-page'>
           <Route exact path ='/' component={FormikLogin} />
         </div> */}
-        {/* <PrivateRoute exact path='/dashboard' component={Dashboard} /> */}
+        <Route exact path='/dashboard' component={Dashboard} />
       </div>
   );
 }

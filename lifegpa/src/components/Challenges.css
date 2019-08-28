@@ -1,7 +1,126 @@
 .challenges-container {
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
-
-    min-height: 100vh;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  min-height: 100vh;
 }
+
+.challenges {
+  width: 50%;
+  min-height: 80vh;
+}
+
+.challenges h1 {
+  margin-left: 1rem;
+}
+
+.active {
+  border-right: 1px solid gray;
+}
+
+.active h2 {
+  text-align: center;
+}
+
+.search h2 {
+  margin-left: 1rem;
+}
+
+.search h3 {
+  text-align: right;
+  margin-right: 1rem;
+}
+
+.search p {
+  text-align: center;
+}
+
+.search form {
+  margin-left: 1rem;
+  width: 69%;
+}
+
+.search form input {
+  padding-left: 0.5rem;
+}
+
+.search .challenges-popular {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  margin-top: 5vh;
+}
+
+.search .challenges-popular .challenges-line {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+.search .challenges-popular .challenges-line .eye-img {
+  height: 30px;
+  width: 30px;
+  margin: 0 1rem;
+}
+
+.search .challenges-popular .challenges-line p {
+  margin: 0;
+}
+
+.search .challenges-popular .challenges-line .challenges-join {
+  margin-left: 10vw;
+  text-decoration: underline;
+  text-underline-position: under;
+}
+
+.search .challenges-create {
+  text-align: center;
+  margin-top: 5vh;
+}
+
+.search .challenges-create .challenge-create-button {
+  margin: 5vh auto auto auto;
+  padding: 0 1rem;
+  border: 1px solid black;
+  border-radius: 20px;
+  width: 250px;
+  background-color: #234059;
+  color: #FFE785;
+}
+
+.challenges-profile-mini {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  margin: 1rem 0 0 1rem;
+}
+
+.challenges-profile-mini .challenges-profile-picture {
+  width: 77px;
+  height: 77px;
+  border-radius: 50%;
+  margin-right: 1rem;
+}
+
+.challenges-profile-mini .challenges-profile-info h4 {
+  margin-bottom: 0.5rem;
+}
+
+.challenges-profile-mini .challenges-profile-info h5 {
+  margin-top: 0;
+}
+/*# sourceMappingURL=Challenges.css.map */
