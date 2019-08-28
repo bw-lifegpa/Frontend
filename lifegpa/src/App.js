@@ -11,7 +11,6 @@ import FormikSignUpForm from "./components/SignUpForm";
 import FormikNewGoalForm from './components/NewGoalForm';
 import ViewGoals from './components/ViewGoals';
 import TrackGoals from './components/TrackGoals';
-import Challenges from './components/Challenges';
 // Styling
 import "./App.css";
 
