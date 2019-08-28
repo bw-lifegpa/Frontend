@@ -1,0 +1,9 @@
+{
+    "version": 3,
+    "mappings": "AAAA,AAAA,iBAAiB,CAAC;EACd,OAAO,EAAE,IAAI;EACb,cAAc,EAAE,MAAM;EACtB,eAAe,EAAE,aAAa;EAE9B,UAAU,EAAE,KAAK;CACpB",
+    "sources": [
+        "Advice.scss"
+    ],
+    "names": [],
+    "file": "Advice.css"
+}
