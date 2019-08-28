@@ -71,7 +71,7 @@ const SignupForm = ({ errors, touched, values, handleSubmit, status }) => {
           <Field 
             type="password"
             name="password"
-            placeholder="Must be 7 characters long"
+            placeholder="Must be 6 characters long"
           />
           {touched.password && errors.password && (
             <p className="error">{errors.password}</p>
@@ -139,7 +139,7 @@ const FormikSignUpForm = withFormik({
 
     password: Yup.string()
       .required()
-      .min(7, "Seems a bit short, minimum of 7"),
+      .min(6, "Seems a bit short, minimum of 6"),
       
     confirmPassword: Yup.string()
       .required("Please confirm password")
