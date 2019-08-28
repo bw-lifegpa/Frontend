@@ -1,0 +1,29 @@
+.track-goals-container {
+    display: flex;
+    flex-flow: row nowrap;
+}
+
+.back-to-dash {
+    padding-bottom: 80px;
+    padding-right: 30px;
+    align-self: flex-end;
+}
+
+.track-goals-header {
+    width: 50%;
+    padding: 10px 20px;
+    border-bottom: 2px solid #000;
+}
+
+.track-goals {
+    border-top: 2px solid #000;
+    padding: 30px 20px;
+}
+
+.mini-dash-container {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: flex-end;
+    width: 50%;
+}

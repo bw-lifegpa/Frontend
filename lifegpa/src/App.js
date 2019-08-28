@@ -6,6 +6,8 @@ import Dashboard from "./components/Dashboard";
 import PrivateRoute from "./components/PrivateRoute";
 import FormikSignUpForm from "./components/SignUpForm/SignUpForm";
 
+import ViewGoals from './components/ViewGoals';
+
 // import Nav from './components/Nav';
 import "./App.css";
 
