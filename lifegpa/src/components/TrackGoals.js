@@ -1,18 +1,22 @@
-import React, { useState } from 'react';
+import React, { useEffect } from 'react';
 import { FaRegEye, FaPlusCircle, FaComments, FaArrowLeft  } from 'react-icons/fa';
-import { BrowserRouter as Router, Link, Route } from 'react-router-dom';
+import { Link } from 'react-router-dom';
+import { connect } from 'react-redux';
+import { fetchUser } from '../actions';
 
 import TrackDatePicker from './TrackDatePicker';
 import MiniDash from './MiniDash';
 import Header from './Header';
 import Footer from './Footer';
-import ViewGoals from './ViewGoals';
 
 import './TrackGoals.css'
 
 
-const TrackGoals = () => {
-    const [goals, setgoals] = useState([])
+const TrackGoals = (props) => {
+
+    useEffect(() => {
+        props.fetchUser(props.match.params.id);
+    }, []);
 
     return (
         <>
@@ -27,11 +31,11 @@ const TrackGoals = () => {
                 
                 <div className='track-goals'>
                     
-                    <Link to='/viewgoals'>
+                    <Link to={`/goals/${props.id}`}>
                         <FaRegEye/> <h3>View Goals</h3>
                     </Link>
                     
-                    <Link to='/creategoal'>
+                    <Link to={`/create/${props.id}`}>
                         <FaPlusCircle/><h3>Create New Goal</h3>
                     </Link>
                     
@@ -39,7 +43,7 @@ const TrackGoals = () => {
                         <FaComments/><h3>Grade Feedback</h3>
                     </Link>
                     
-                    <TrackDatePicker />
+                    {/* <TrackDatePicker /> */}
                 </div>   
             </div>
             
@@ -54,14 +58,19 @@ const TrackGoals = () => {
             </div>
             <Footer />
         </div>
-        <Route
-         path='/viewgoals/:id'
-         render={props => <ViewGoals {...props} goals={goals} />} />
-         
-         <Route exact path='/viewgoals/:id' component={ViewGoals} />
         </>
     )
 }
+const mapStateToProps = state => {
+    return {
+        error: state.error,
+        isFetching: state.isFetching,
+        id: state.id,
+        username: state.username,
+        first_name: state.first_name,
+        last_name: state.last_name,
+        email: state.email
+    }
+}
 
-
-export default TrackGoals;
+export default connect(mapStateToProps, { fetchUser })(TrackGoals);
