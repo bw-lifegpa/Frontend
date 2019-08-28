@@ -17,7 +17,6 @@ import ViewGoals from './components/ViewGoals';
 import "./App.css";
 
 function App() {
-
   return (
       <div className="App">
       {/* <TrackGoals /> */}
