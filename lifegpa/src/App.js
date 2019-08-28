@@ -1,3 +1,4 @@
+
 import React from "react";
 import { Route } from "react-router-dom";
 import FormikLogin from "./components/Login";
@@ -16,7 +17,6 @@ function App() {
           <Route exact path ='/' component={FormikLogin} />
         </div>
         <PrivateRoute exact path='/dashboard' component={Dashboard} />
-
       </div>
     </div>
   );
