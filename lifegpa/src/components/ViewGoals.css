@@ -15,7 +15,7 @@
 .button-container {
     display: flex;
     flex-flow: row nowrap;
-    justify-content: space-evenly;
+    justify-content: space-between;
     align-items: center;
     padding: 10px 20px;
     width: 100%;
