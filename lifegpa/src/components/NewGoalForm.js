@@ -9,7 +9,6 @@ import "./NewGoalForm.css";
 import Nav from './Nav';
 import Header from './Header';
 import Footer from './Footer';
-import Nav from './Nav';
 
 function NewGoalForm({ match, errors, touched, isSubmitting }) {
 
