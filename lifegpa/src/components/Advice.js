@@ -4,6 +4,7 @@ import { connect } from 'react-redux';
 import './Advice.css';
 
 import Header from './Header';
+import Nav from './Nav';
 import Footer from './Footer';
 import MagnifyingGlass from '../designfiles/magnifying-glass.png';
 import AskAProIcon from '../designfiles/ask-a-pro.png';
@@ -18,6 +19,7 @@ function Advice(props) {
     return (
         <div className="advice-container">
             <Header />
+            <Nav user_id={props.id}/>
             <div className="body">
                 <div className="advice-body">
                     <div className="advice-nav">

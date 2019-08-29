@@ -2,6 +2,9 @@
 import React, { useState } from "react";
 import { connect } from 'react-redux'
 import { editGoal, fetchGoal } from '../actions/index'
+import Header from './Header';
+import Nav from './Nav';
+import Footer from './Footer';
 
 
 function EditForm (props) {
@@ -33,6 +36,8 @@ function EditForm (props) {
   if (goalState){
   return (
         <div>
+            <Header/>
+            <Nav user_id={props.match.params.id}/>
             <h1>Edit:</h1>
               <form onSubmit={editGoal}>
                 <input 
@@ -53,6 +58,7 @@ function EditForm (props) {
                       Update Goal
                     </button>
                 </form>
+            <Footer/>
         </div>
     )
   }

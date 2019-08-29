@@ -2,6 +2,7 @@ import React, { useEffect } from 'react';
 import './Dashboard.css'
 
 import Header from './Header';
+import Nav from './Nav';
 import DashboardButtons from './DashboardButtons';
 import DashboardProfile from './DashboardProfile';
 import MiniDash from './MiniDash';
@@ -17,6 +18,7 @@ const Dashboard = (props) => {
     
     return (
         <div className="dashboard-container">
+            <Nav user_id={props.id}/>
             <Header />
             <div className="body">
                 <DashboardProfile
