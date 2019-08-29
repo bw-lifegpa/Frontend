@@ -11,11 +11,12 @@ import FormikSignUpForm from "./components/SignUpForm";
 import FormikNewGoalForm from './components/NewGoalForm';
 import ViewGoals from './components/ViewGoals';
 import EditForm from './components/EditForm';
-import TrackGoals from './components/TrackGoals';
+import TrackGoals from './components/TrackGoals'
 // Styling
 import "./App.css";
 
 function App() {
+
   return (
       <div className="App">
         {/* Public Routes */}
