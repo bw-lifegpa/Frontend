@@ -45,26 +45,28 @@ return (
     
     <div>
         <Header />
-        <h1>Goals</h1>
         <Nav user_id={props.match.params.id}/>
+        <div className="viewgoals-body">
+            <h1 className="viewgoals-title">Goals</h1>
+    
+            {UserGoals.length >= 1 ? UserGoals.map((goal, index) => {
+                return (
+                    <div key={index} className='goal-list'>
+                        <GoalCard {...props} goal={goal} id={goal.id} />
+                    </div>
+                )
+            }) : 
+            () => { 
+                return (
+                 <div>
+      
+                </div>)}}
+      
+                        <Link className="create-new-goal" to={`/create/${props.match.params.id}`}>
+                            <FaPlusCircle/><h3>Create New Goal</h3>
+                        </Link>
 
-        {UserGoals.length >= 1 ? UserGoals.map((goal, index) => {
-            return (
-                <div key={index} className='goal-list'>
-                    <GoalCard {...props} goal={goal} id={goal.id} />
-                </div>
-            )
-        }) : 
-        () => { 
-            return (
-             <div>
-  
-            </div>)}}
-  
-<Link to={`/create/${props.match.params.id}`}>
-                        <FaPlusCircle/><h3>Create New Goal</h3>
-                    </Link>
-
+        </div>
         <Footer />
     </div>
 )
