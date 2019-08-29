@@ -21,7 +21,8 @@ const initialState = {
     email: '',
     goal_name: '',
     description: '',
-    habit_id: ''
+    habit_id: '',
+    created_at:''
 }
 
 export const reducer = (state = initialState, action) => {
@@ -62,7 +63,8 @@ export const reducer = (state = initialState, action) => {
                 isFetching: false,
                 error: '',
                 goal_name: action.payload.name,
-                description: action.payload.description
+                description: action.payload.description,
+                created_at:action.payload.created_at
             };
         case FETCH_GOAL_FAILURE:
             return {
