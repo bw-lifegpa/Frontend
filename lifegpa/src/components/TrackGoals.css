@@ -1,29 +1,64 @@
 .track-goals-container {
-    display: flex;
-    flex-flow: row nowrap;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  min-height: 100vh;
+}
+
+.track-goals-container .track-goals-body {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  min-height: 80vh;
 }
 
 .back-to-dash {
-    padding-bottom: 80px;
-    padding-right: 30px;
-    align-self: flex-end;
+  padding-bottom: 80px;
+  padding-right: 30px;
+  -ms-flex-item-align: end;
+      align-self: flex-end;
 }
 
 .track-goals-header {
-    width: 50%;
-    padding: 10px 20px;
-    border-bottom: 2px solid #000;
+  width: 50%;
+  padding-left: 3rem;
 }
 
-.track-goals {
-    border-top: 2px solid #000;
-    padding: 30px 20px;
+.track-goals a {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
 }
 
-.mini-dash-container {
-    display: flex;
-    flex-direction: column;
-    align-items: flex-start;
-    justify-content: flex-end;
-    width: 50%;
+.track-goals a h3 {
+  margin-left: 1rem;
 }
+
+.minidash-container {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  margin: auto;
+  width: 33%;
+}
+/*# sourceMappingURL=TrackGoals.css.map */

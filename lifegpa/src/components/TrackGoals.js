@@ -14,14 +14,14 @@ export default function TrackGoals (props) {
 
     return (
         <>
-        <div>
+        <div className='track-goals-container'>
             <Header />
         
-            <div className='track-goals-container'>
+            <div className='track-goals-body'>
             
             <div className='track-goals-header'>
                 <h1>Let's manage the heck out of those goals!</h1>
-                <h3>What would you like to do today?</h3>
+                <h3>What would you like to do?</h3>
                 
                 <div className='track-goals'>
                     
@@ -41,14 +41,7 @@ export default function TrackGoals (props) {
                 </div>   
             </div>
             
-            <div className='mini-dash-container'>
-            
-                <div className='back-to-dash'>
-                    <FaArrowLeft/> Go back to dashboard
-                </div>
-                
-                <MiniDash />
-            </div>
+            <MiniDash />
             </div>
             <Footer />
         </div>
