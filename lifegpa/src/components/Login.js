@@ -26,7 +26,7 @@ function Login({ errors, touched }) {
                         Password: 
                         <Field type= 'password' name='password' placeholder='Password' />
                         </div>
-                    <button className='button' type='submit'>Get To Tracking</button>
+                    <button className='button' type='submit'>Get To Tracking!</button>
                     <Link to="/register">
                         <p>Create your account</p>
                     </Link>

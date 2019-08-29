@@ -13,8 +13,8 @@ function Challenges(props) {
 
     return (
         <div className="challenges-container">
-        <Nav user_id={props.id}/>
             <Header />
+            <Nav user_id={props.id}/>
             <div className="body">
                 <div className="challenges active">
                     <div className="challenges-profile-mini">
