@@ -1,9 +1,14 @@
 import React, { useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import { connect } from 'react-redux';
-import { fetchUser } from '../actions';
+import { fetchUser, updateHabitId } from '../actions';
 
 const GoalCard = (props) => {
+
+    useEffect(() => {
+        props.fetchUser(props.match.params.id);
+        props.updateHabitId(props.goal.habit_id)
+    }, []);
 
     useEffect(() => {
         props.fetchUser(props.match.params.id);
@@ -18,7 +23,7 @@ const GoalCard = (props) => {
                 <h6>create at</h6>
                 <div className='button-container'>
                     <Link to={`/edit/${props.id}/${props.goal.habit_id}`}>
-                        <button className='edit'>Edit</button>
+                    <button className='edit'>Edit</button>
                     </Link>
                     <button className='delete'>Delete</button>
                 </div>
@@ -28,16 +33,16 @@ const GoalCard = (props) => {
 
 }
 const mapStateToProps = state => {
-    return{
+    return {
         error: state.error,
         isFetching: state.isFetching,
         id: state.id,
         username: state.username,
         first_name: state.first_name,
         last_name: state.last_name,
-        email: state.email
-        
+        email: state.email,
+        habit_id: state.habit_id
     }
 }
 
-export default connect(mapStateToProps, {fetchUser})(GoalCard);
+export default connect(mapStateToProps, { fetchUser, updateHabitId })(GoalCard);

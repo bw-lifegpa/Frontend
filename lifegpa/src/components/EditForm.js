@@ -1,3 +1,4 @@
+    
 import React, { useState } from "react";
 import { connect } from 'react-redux'
 import { editGoal, fetchGoal } from '../actions/index'
@@ -9,57 +10,55 @@ function EditForm (props) {
     description: "",
   });
 
-  const changeHandler = event => {
+  const habit_id = parseInt(props.match.params.goal_id)
+
+  const changeHandler = e => {
+    e.preventDefault();
     setGoalState({
       ...goalState,
-      [event.target.name]: event.target.value
+      [e.target.name]: e.target.value
     });
   };
 
   const editGoal = e => {
-    e.preventDefault()
-    props.editData(props.goal.id, goalState)
+    e.preventDefault();
+    props.editGoal(habit_id, goalState)
     setGoalState({
       name: '',
       description: ''
     })
+    props.history.push(`/goals/${props.match.params.id}`)
   }
 
+  if (goalState){
   return (
-      <>
-          <div >{props.goal.name}</div>
-          <div>{props.goal.goal}</div>
-          <div>
-              <input 
-              type="text" 
-              placeholder="public or private" 
-              name="status" value={goalState.status}
-              onChange={changeHandler}/>
-          </div>
-          <div>
-            <button>Edit</button>
-              <form>
+        <div>
+            <h1>Edit:</h1>
+              <form onSubmit={editGoal}>
                 <input 
                       type="text"
                       placeholder="goal name"
-                      name="goal"
+                      name="name"
                       value={goalState.name}
                       onChange={changeHandler}
                       />
                   <input  
                       type="text"
-                      placeholder="enter new goal here"
-                      name="edit_description"
+                      placeholder="enter description"
+                      name="description"
                       value={goalState.description}
                       onChange={changeHandler}
                       />   
-                    <button onClick={editGoal}>
+                    <button type="submit">
                       Update Goal
                     </button>
                 </form>
         </div>
-        </>
     )
+  }
+  return (
+      <div />
+  )
 }
 
 const mapStateToProps = state => {
@@ -67,8 +66,9 @@ const mapStateToProps = state => {
   return {
     error: state.error,
     isFetching: state.isFetching,
-    // goal: state.goal,
-    // user: state.user
+    goal_name: state.goal_name,
+    description: state.description,
+    habit_id: state.habit_id
   }
 }
 

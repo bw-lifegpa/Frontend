@@ -10,6 +10,7 @@ import PrivateRoute from "./components/PrivateRoute";
 import FormikSignUpForm from "./components/SignUpForm";
 import FormikNewGoalForm from './components/NewGoalForm';
 import ViewGoals from './components/ViewGoals';
+import EditForm from './components/EditForm';
 import TrackGoals from './components/TrackGoals';
 import EditForm from './components/EditForm'
 // Styling
@@ -28,7 +29,7 @@ function App() {
         <PrivateRoute exact path='/edit/:id/:goal_id' component={EditForm} />
         <PrivateRoute exact path='/create/:id' component={FormikNewGoalForm} />
         <PrivateRoute exact path='/challenges/:id' component={Challenges} />
-        {/* <PrivateRoute exact path='/advice/:id' component={Advice} /> */}
+        <PrivateRoute exact path='/advice/:id' component={Advice} />
       </div>
   );
 }
