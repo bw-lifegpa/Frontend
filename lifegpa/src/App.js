@@ -24,7 +24,7 @@ function App() {
         <PrivateRoute exact path='/dashboard/:id' component={Dashboard} />
         <PrivateRoute exact path='/track/:id' component={TrackGoals} />
         <PrivateRoute exact path='/goals/:id' component={ViewGoals} />
-        {/* <PrivateRoute exact path='/edit/:id/:goal_id' component={EditGoals} /> */}
+        <PrivateRoute exact path='/edit/:id/:goal_id' component={EditForm} />
         <PrivateRoute exact path='/create/:id' component={FormikNewGoalForm} />
         <PrivateRoute exact path='/challenges/:id' component={Challenges} />
         {/* <PrivateRoute exact path='/advice/:id' component={Advice} /> */}
