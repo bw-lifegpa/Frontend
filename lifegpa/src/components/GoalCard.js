@@ -36,7 +36,8 @@ const GoalCard = (props) => {
                     <Link to={`/edit/${props.id}/${props.goal.habit_id}`}>
                     <button className='edit'>Edit</button>
                     </Link>
-                    <button className='delete' onClick = {deleteHandler} >Delete</button>
+                    <button className='edit' onClick = {deleteHandler} >Delete</button>
+                    <button className='edit' >Goal Completed</button>
                 </div>
             </div>
         </div>
