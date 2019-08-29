@@ -3,7 +3,6 @@ import React from "react";
 import { Route } from "react-router-dom";
 // Components
 import FormikLogin from "./components/Login";
-import Nav from "./components/Nav";
 import Advice from "./components/Advice";
 import Dashboard from "./components/Dashboard";
 import Challenges from "./components/Challenges";

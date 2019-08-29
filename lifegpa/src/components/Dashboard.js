@@ -18,19 +18,17 @@ const Dashboard = (props) => {
     console.log(props)
     
     return (
-        <div>
-            <div className="dashboard-container">
-                <Header />
-                <Nav user_id={props.id}/>
-                <div className="body">
-                    <DashboardProfile
-                        first_name={props.first_name}
-                        last_name={props.last_name}
-                    />
-                    <div className="dashboard-widgets">
-                        <MiniDash />
-                        <DashboardButtons />
-                    </div>
+        <div className="dashboard-container">
+            <Header />
+            <Nav user_id={props.id}/>
+            <div className="body">
+                <DashboardProfile
+                    first_name={props.first_name}
+                    last_name={props.last_name}
+                />
+                <div className="dashboard-widgets">
+                    <MiniDash />
+                    <DashboardButtons />
                 </div>
                 <Footer />
             </div>

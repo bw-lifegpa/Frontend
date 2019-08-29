@@ -9,15 +9,16 @@ import "./NewGoalForm.css";
 import Nav from './Nav';
 import Header from './Header';
 import Footer from './Footer';
+import Nav from './Nav';
 
-function NewGoalForm({ values, errors, touched, isSubmitting }) {
+function NewGoalForm({ match, errors, touched, isSubmitting }) {
 
     return (
-      <div className="new-goal-container">
+      <div className="container">
       <Header/>
-      <Nav/>
-      <Form className="new-goal-form">
-        <label><h1>Create a Goal</h1></label>
+      <Nav user_id={match.params.id} />
+      <Form>
+        <label>Create a Goal </label>
         <div className="goal-name">
           {touched.name && errors.name && <p>{errors.name}</p>}
           <Field type="text" name="name" placeholder="Goal Name" />

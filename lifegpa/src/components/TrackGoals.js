@@ -2,7 +2,6 @@ import React from 'react';
 import { FaRegEye, FaPlusCircle, FaComments, FaArrowLeft  } from 'react-icons/fa';
 import { Link } from 'react-router-dom';
 
-import TrackDatePicker from './TrackDatePicker';
 import MiniDash from './MiniDash';
 import Header from './Header';
 import Nav from './Nav';
@@ -39,7 +38,7 @@ export default function TrackGoals (props) {
                         <FaComments/><h3>Grade Feedback</h3>
                     </Link>
                     
-                    {/* <TrackDatePicker /> */}
+                  
                 </div>   
             </div>
             
