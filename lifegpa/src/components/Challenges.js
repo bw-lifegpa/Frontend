@@ -1,37 +1,25 @@
-import React, { useState, useEffect } from 'react';
+import React from 'react';
 import { NavLink } from 'react-router-dom';
 import './Challenges.css'
+import { connect } from 'react-redux';
 
 import Header from './Header';
+import Nav from './Nav';
 import Footer from './Footer';
-import axios from 'axios';
-import Eye from '../designfiles/eye-img.png'
+import Eye from '../designfiles/eye-img.png';
+import MagnifyingGlass from '../designfiles/magnifying-glass.png';
 
-export default function Challenges() {
-    const [userData, setUserData] = useState([]);
+function Challenges(props) {
 
-    useEffect(() => {
-        axios
-            .get('https://reqres.in/api/users/2')
-            .then(response => {
-                setUserData(response.data.data);
-            })
-            .catch(error => {
-                console.error('Server Error', error);
-            })
-    }, []);
-
-    console.log(userData);
-    
     return (
         <div className="challenges-container">
+        <Nav user_id={props.id}/>
             <Header />
             <div className="body">
                 <div className="challenges active">
                     <div className="challenges-profile-mini">
-                        <img className="challenges-profile-picture" src={userData.avatar} />
                         <div className="challenges-profile-info">
-                            <h4>{`${userData.first_name} ${userData.last_name}`}</h4>
+                            <h4>{`${props.first_name} ${props.last_name}`}</h4>
                             <h5>View Account</h5>
                         </div>
                     </div>
@@ -39,7 +27,7 @@ export default function Challenges() {
                     <h2>You currently have no active challenges.</h2>
                 </div>
                 <div className="challenges search">
-                    <NavLink to="/dashboard">
+                    <NavLink to={`/dashboard/${props.id}`}>
                         <h3>Back to Dashboard</h3>
                     </NavLink>
                     <h1>Search Challenges</h1>
@@ -49,6 +37,7 @@ export default function Challenges() {
                                 value="Search by name or category"
                             />
                         </label>
+                        <img src={MagnifyingGlass} />
                     </form>
                     <div className="challenges-suggested">
                         <h2>Suggested for you</h2>
@@ -79,3 +68,17 @@ export default function Challenges() {
         </div>
     )
 }
+
+const mapStateToProps = state => {
+    return {
+        error: state.error,
+        isFetching: state.isFetching,
+        id: state.id,
+        username: state.username,
+        first_name: state.first_name,
+        last_name: state.last_name,
+        email: state.email
+    }
+}
+
+export default connect(mapStateToProps, {})(Challenges);

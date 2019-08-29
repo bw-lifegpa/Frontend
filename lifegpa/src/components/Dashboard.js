@@ -1,37 +1,29 @@
-import React, { useState, useEffect } from 'react';
+import React, { useEffect } from 'react';
 import './Dashboard.css'
 
 import Header from './Header';
+import Nav from './Nav';
 import DashboardButtons from './DashboardButtons';
 import DashboardProfile from './DashboardProfile';
 import MiniDash from './MiniDash';
 import Footer from './Footer';
-import axios from 'axios';
+import { connect } from 'react-redux';
+import { fetchUser } from '../actions';
 
-export default function Dashboard() {
-    const [userData, setUserData] = useState([]);
+const Dashboard = (props) => {
 
     useEffect(() => {
-        axios
-            .get('https://reqres.in/api/users/2')
-            .then(response => {
-                setUserData(response.data.data);
-            })
-            .catch(error => {
-                console.error('Server Error', error);
-            })
+        props.fetchUser(props.match.params.id);
     }, []);
-
-    console.log(userData);
     
     return (
         <div className="dashboard-container">
+            <Nav user_id={props.id}/>
             <Header />
             <div className="body">
                 <DashboardProfile
-                    avatar={userData.avatar}
-                    first_name={userData.first_name}
-                    last_name={userData.last_name}
+                    first_name={props.first_name}
+                    last_name={props.last_name}
                 />
                 <div className="dashboard-widgets">
                     <MiniDash />
@@ -41,4 +33,18 @@ export default function Dashboard() {
             <Footer />
         </div>
     )
+};
+
+const mapStateToProps = state => {
+    return {
+        error: state.error,
+        isFetching: state.isFetching,
+        id: state.id,
+        username: state.username,
+        first_name: state.first_name,
+        last_name: state.last_name,
+        email: state.email
+    }
 }
+
+export default connect(mapStateToProps, { fetchUser })(Dashboard);

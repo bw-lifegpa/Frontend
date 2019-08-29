@@ -1,47 +1,39 @@
 import React, { useState, useEffect } from 'react';
-import axios from 'axios';
-import { NavLink, Route, Router } from 'react-router-dom';
+import { axiosWithAuth } from '../utilities/axiosWithAuth';
 
 import Header from './Header';
+import Nav from './Nav';
 import Footer from './Footer';
+import GoalCard from './GoalCard';
 
 import './ViewGoals.css';
 
 const ViewGoals = (props) => {
-const [userGoals, setUserGoals] = useState([{}])
+    const [UserGoals, setUserGoals] = useState([])
 
-const id = props.match.params.id;
+    useEffect(() => {
+        axiosWithAuth()
+        .get(`https://lifegpa-api.herokuapp.com/users/${props.match.params.id}/habits`)
+        .then( res => {
+            console.log(res.data)
+            setUserGoals(res.data)
+        })
+        .catch(error => console.log(error.response.message))
+    }, [])
 
-useEffect(() => {
-    axios.get(`https://lifegpa-api.herokuapp.com/users/${id}/habits/`)
-    .then( res => {
-        console.log(res.data)
-        const goal = res.data;
-        setUserGoals(goal)
-    })
-    .catch(error => console.log(error.response.message))
-}, [])
 
 return (
     <div>
         <Header />
+        <Nav user_id={props.match.params.id}/>
 
-        {userGoals.map((user, index) => {
+        {UserGoals ? UserGoals.map((goal, index) => {
             return (
-                <>
-                <div key={index} className="goal-container">
-                    <div className='goal'>
-                        <h1 className="goal-name">{user.name}</h1>
-                        <h3 className="goal-description">{user.description}</h3>
-                        <div className='button-container'>
-                            <NavLink className='edit-goal'>Edit</NavLink>
-                            <NavLink className='delete-goal'>Delete</NavLink>
-                        </div>
-                    </div>
+                <div key={index} className='goal-list'>
+                    <GoalCard {...props} goal={goal} id={goal.id} />
                 </div>
-                </>
-              );
-        })}
+            )
+        }) : () => {return <div/>}}
 
         <Footer />
     </div>

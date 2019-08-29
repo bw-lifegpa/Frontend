@@ -1,23 +1,23 @@
-import React, { useState } from 'react';
+import React from 'react';
 import { FaRegEye, FaPlusCircle, FaComments, FaArrowLeft  } from 'react-icons/fa';
-import { BrowserRouter as Router, Link, Route } from 'react-router-dom';
+import { Link } from 'react-router-dom';
 
 import TrackDatePicker from './TrackDatePicker';
 import MiniDash from './MiniDash';
 import Header from './Header';
+import Nav from './Nav';
 import Footer from './Footer';
-import ViewGoals from './ViewGoals';
 
 import './TrackGoals.css'
 
 
-const TrackGoals = () => {
-    const [goals, setgoals] = useState([])
+export default function TrackGoals (props) {
 
     return (
         <>
         <div>
             <Header />
+            <Nav user_id={props.id}/>
         
             <div className='track-goals-container'>
             
@@ -27,11 +27,11 @@ const TrackGoals = () => {
                 
                 <div className='track-goals'>
                     
-                    <Link to='/viewgoals'>
+                    <Link to={`/goals/${props.match.params.id}`}>
                         <FaRegEye/> <h3>View Goals</h3>
                     </Link>
                     
-                    <Link to='/creategoal'>
+                    <Link to={`/create/${props.match.params.id}`}>
                         <FaPlusCircle/><h3>Create New Goal</h3>
                     </Link>
                     
@@ -39,7 +39,7 @@ const TrackGoals = () => {
                         <FaComments/><h3>Grade Feedback</h3>
                     </Link>
                     
-                    <TrackDatePicker />
+                    {/* <TrackDatePicker /> */}
                 </div>   
             </div>
             
@@ -54,14 +54,6 @@ const TrackGoals = () => {
             </div>
             <Footer />
         </div>
-        <Route
-         path='/viewgoals/:id'
-         render={props => <ViewGoals {...props} goals={goals} />} />
-         
-         <Route exact path='/viewgoals/:id' component={ViewGoals} />
         </>
     )
-}
-
-
-export default TrackGoals;
+};
