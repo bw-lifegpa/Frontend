@@ -15,6 +15,7 @@ const Dashboard = (props) => {
     useEffect(() => {
         props.fetchUser(props.match.params.id);
     }, []);
+    console.log(props)
     
     return (
         <div>

@@ -2,19 +2,33 @@
     box-shadow: 
     0 3px 6px rgba(0,0,0,0.16), 
     0 3px 6px rgba(0,0,0,0.23);
-    width: 30%;
+    width: 45%;
     border-radius: 10px;
     padding: 20px;
     margin: 20px;
+    margin-left: 40px;
     background: #f1f1f1;
+    justify-content: center;
+    align-items:center;
 }
 
 .button-container {
     display: flex;
-    justify-content: space-between;
+    flex-flow: row nowrap;
+    justify-content: space-evenly;
+    align-items: center;
     padding: 10px 20px;
+    width: 100%;
+
+    
 }
 
-.button {
-    padding: 10px;
+.delete {
+ padding: 10;
+ margin: 0 auto;
 }
+
+.edit {
+    padding: 10;
+    margin: 0 auto;
+   }
