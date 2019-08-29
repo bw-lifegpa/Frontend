@@ -104,7 +104,7 @@ const SignupForm = ({ errors, touched, values, handleSubmit, status }) => {
             I accept the LifeGPA <a href="https://www.w3schools.com">terms of service</a> and <a href="https://www.w3schools.com">privacy policy.</a>
           </label>
   
-          <button type="submit"> Let's Get Started</button>
+          <button className="sign-up-button" type="submit"> Let's Get Started</button>
           <Link to="/">
             <p>Have an account? Log in</p>
           </Link>
