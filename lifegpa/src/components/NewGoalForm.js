@@ -16,7 +16,7 @@ function NewGoalForm({ match, errors, touched, isSubmitting }) {
       <Header/>
       <Nav user_id={match.params.id} />
       <Form>
-        <label>Create a Goal</label>
+        <label>Create a Goal </label>
         <div className="goal-name">
           {touched.name && errors.name && <p>{errors.name}</p>}
           <Field type="text" name="name" placeholder="Goal Name" />
