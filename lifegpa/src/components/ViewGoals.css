@@ -14,21 +14,31 @@
 
 .button-container {
     display: flex;
-    flex-flow: row nowrap;
     justify-content: space-between;
     align-items: center;
-    padding: 10px 20px;
     width: 100%;
-
-    
-}
-
-.delete {
- padding: 10;
- margin: 0 auto;
 }
 
 .edit {
-    padding: 10;
-    margin: 0 auto;
-   }
+    margin: 0;
+}
+
+.create-new-goal {
+    display: flex;
+    align-items: center;
+    margin: 0 0 2rem 2rem;
+}
+
+.create-new-goal h3 {
+    margin: 0 0 0 1rem;
+}
+
+.viewgoals-title {
+    margin-top: 0;
+    margin-left: 2rem;
+    padding-top: 2rem;
+}
+
+.viewgoals-body {
+    height: 80vh;
+}

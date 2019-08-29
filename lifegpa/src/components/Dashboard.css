@@ -23,7 +23,6 @@
 
 .dashboard-container .body {
   min-height: 80vh;
-  padding-top: 2rem;
 }
 
 .dashboard-widgets {
@@ -38,6 +37,7 @@
       -ms-flex-align: center;
           align-items: center;
   width: 50vw;
+  padding-top: 2rem;
   padding-right: 181px;
 }
 
@@ -157,5 +157,9 @@
 
 .minidash-container h5 {
   margin: 0;
+}
+
+.dashboard-profile-container {
+  padding-top: 2rem;
 }
 /*# sourceMappingURL=Dashboard.css.map */
