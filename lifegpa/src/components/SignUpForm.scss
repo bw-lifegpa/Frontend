@@ -1,0 +1,78 @@
+.sign-up-page-container {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+
+    min-height: 100vh;
+
+    .sign-up-page-body {
+        display: flex;
+        min-height: 80vh;
+    }
+}
+
+.form-intro {
+    width: 35%;
+    border-right: 1px solid gray;
+    text-align: center;
+    padding-top: 2rem;
+
+    .form-intro-text {
+        width: 306px;
+        margin: auto;
+        text-align: left;
+    }
+}
+
+.signup-form {
+    width: 65%;
+
+    form {
+        padding: 2rem;
+    }
+
+    #email {
+        width: 500px;
+    }
+
+    .signup-form-field {
+        display: flex;
+        flex-direction: column;
+        padding: 1rem;
+        width: 300px;
+
+        input {
+            background-color: #ffffff;
+        }
+    }
+
+    .signup-form-name {
+        display: flex;
+    }
+
+    .signup-form-password {
+        display: flex;
+    }
+}
+
+.checkbox-container {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    width: 455px;
+
+    input {
+        width: 50px;
+    }
+}
+
+button {
+    border-radius: 10px;
+    width: 202px;
+    margin: 2rem 21.5rem;
+    height: 42px;
+    background-color: #234059;
+    color: #FFE785;
+    font-weight: 600;
+}
