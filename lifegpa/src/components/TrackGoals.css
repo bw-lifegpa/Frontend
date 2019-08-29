@@ -46,19 +46,4 @@
 .track-goals a h3 {
   margin-left: 1rem;
 }
-
-.minidash-container {
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-orient: vertical;
-  -webkit-box-direction: normal;
-      -ms-flex-direction: column;
-          flex-direction: column;
-  -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
-  margin: auto;
-  width: 33%;
-}
 /*# sourceMappingURL=TrackGoals.css.map */

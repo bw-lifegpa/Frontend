@@ -20,8 +20,6 @@ function App() {
 
   return (
       <div className="App">
-        {/* Hamburger Menu Nav */}
-        <Nav />
         {/* Public Routes */}
         <Route exact path='/' component={FormikLogin} />
         <Route exact path='/register' component={FormikSignUpForm} />
