@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react';
 import { axiosWithAuth } from '../utilities/axiosWithAuth';
 
 import Header from './Header';
+import Nav from './Nav';
 import Footer from './Footer';
 import GoalCard from './GoalCard';
 
@@ -24,6 +25,7 @@ const ViewGoals = (props) => {
 return (
     <div>
         <Header />
+        <Nav user_id={props.match.params.id}/>
 
         {UserGoals ? UserGoals.map((goal, index) => {
             return (
