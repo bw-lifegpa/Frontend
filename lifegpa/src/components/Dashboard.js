@@ -30,8 +30,8 @@ const Dashboard = (props) => {
                     <MiniDash />
                     <DashboardButtons />
                 </div>
+                <Footer />
             </div>
-            <Footer />
         </div>
     )
 };

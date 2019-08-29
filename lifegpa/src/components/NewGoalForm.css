@@ -1,0 +1,21 @@
+.new-goal-container {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+
+    min-height: 100vh;
+}
+
+.new-goal-form {
+    height: 80vh;
+    padding: 2rem;
+}
+
+.goal-name {
+    width: 500px;
+    margin-bottom: 1rem;
+}
+
+.create-goal-button {
+    margin-left: 0;
+}

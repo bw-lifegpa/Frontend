@@ -4,6 +4,9 @@ import { withRouter } from 'react-router-dom';
 import * as Yup from "yup";
 import { axiosWithAuth } from '../utilities/axiosWithAuth'
 
+import "./NewGoalForm.css";
+
+import Nav from './Nav';
 import Header from './Header';
 import Footer from './Footer';
 import Nav from './Nav';
@@ -12,7 +15,6 @@ function NewGoalForm({ match, errors, touched, isSubmitting }) {
 
     return (
       <div className="container">
-
       <Header/>
       <Nav user_id={match.params.id} />
       <Form>
@@ -52,7 +54,7 @@ function NewGoalForm({ match, errors, touched, isSubmitting }) {
         </label>
         </div> */}
         <div>
-        <button type="submit" disabled={isSubmitting}>Create Goal</button>
+        <button className="create-goal-button" type="submit" disabled={isSubmitting}>Create Goal</button>
         </div>
       </Form>
       <Footer/>
