@@ -4,16 +4,20 @@ import { withRouter } from 'react-router-dom';
 import * as Yup from "yup";
 import { axiosWithAuth } from '../utilities/axiosWithAuth'
 
+import "./NewGoalForm.css";
+
+import Nav from './Nav';
 import Header from './Header';
 import Footer from './Footer';
 
 function NewGoalForm({ values, errors, touched, isSubmitting }) {
 
     return (
-      <div className="container">
+      <div className="new-goal-container">
       <Header/>
-      <Form>
-        <label>Create a Goal</label>
+      <Nav/>
+      <Form className="new-goal-form">
+        <label><h1>Create a Goal</h1></label>
         <div className="goal-name">
           {touched.name && errors.name && <p>{errors.name}</p>}
           <Field type="text" name="name" placeholder="Goal Name" />
@@ -33,7 +37,7 @@ function NewGoalForm({ values, errors, touched, isSubmitting }) {
         </div> */}
         <div className="description">
           {touched.description && errors.description && <p>{errors.description}</p>}
-          <Field component="textarea" rows='10' cols='70' name="description" placeholder="Description (optional)" />
+          <Field type="text" name="description" placeholder="Description (optional)" />
         </div>
         {/* {/* <div className="start-date">
         <label>Start Date:</label><div/>
@@ -49,7 +53,7 @@ function NewGoalForm({ values, errors, touched, isSubmitting }) {
         </label>
         </div> */}
         <div>
-        <button type="submit" disabled={isSubmitting}>Create Goal</button>
+        <button className="create-goal-button" type="submit" disabled={isSubmitting}>Create Goal</button>
         </div>
       </Form>
       <Footer/>

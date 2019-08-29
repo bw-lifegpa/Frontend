@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { axiosWithAuth } from '../utilities/axiosWithAuth';
+import { Link } from 'react-router-dom';
 
 import Header from './Header';
 import Nav from './Nav';
@@ -7,6 +8,7 @@ import Footer from './Footer';
 import GoalCard from './GoalCard';
 
 import './ViewGoals.css';
+import {FaPlusCircle} from 'react-icons/fa';
 
 const ViewGoals = (props) => {
     const [UserGoals, setUserGoals] = useState([])
@@ -21,31 +23,52 @@ const ViewGoals = (props) => {
         .catch(error => console.log(error.response.message))
     }, [])
 
+console.log(UserGoals.length)
+
+if (UserGoals.length === 0) {
+    return (
+        <div>
+        <Header />
+        <Nav user_id={props.match.params.id}/>
+        <div>
+            <h1>Please Create Goals to Begin Tracking</h1>
+            <Link to={`/create/${props.match.params.id}`}>
+                        <FaPlusCircle/><h3>Create New Goal</h3>
+                    </Link>
+        </div>
+        <Footer />
+    </div>
+    )
+ }
 
 return (
+    
     <div>
         <Header />
-
-        {UserGoals.map((goal, index) => {
-            return (
-                <div key={index} className='goal-list'>
-                    <GoalCard {...props} id={goal.id} />
-
-
+        <h1>Goals</h1>
         <Nav user_id={props.match.params.id}/>
 
-        {UserGoals ? UserGoals.map((goal, index) => {
+        {UserGoals.length >= 1 ? UserGoals.map((goal, index) => {
             return (
                 <div key={index} className='goal-list'>
                     <GoalCard {...props} goal={goal} id={goal.id} />
                 </div>
             )
-        }) : () => {return <div/>}}
+        }) : 
+        () => { 
+            return (
+             <div>
+  
+            </div>)}}
+  
+<Link to={`/create/${props.match.params.id}`}>
+                        <FaPlusCircle/><h3>Create New Goal</h3>
+                    </Link>
 
         <Footer />
     </div>
 )
 
-})}
+}
 
 export default ViewGoals;

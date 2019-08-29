@@ -1,0 +1,37 @@
+.track-goals-container {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    min-height: 100vh;
+
+    .track-goals-body {
+        display: flex;
+        align-items: center;
+
+        min-height: 80vh;
+    }
+}
+
+.back-to-dash {
+    padding-bottom: 80px;
+    padding-right: 30px;
+    align-self: flex-end;
+}
+
+.track-goals-header {
+    width: 50%;
+    padding-left: 3rem;
+}
+
+.track-goals {
+
+    a {
+        display: flex;
+        align-items: center;
+
+        h3 {
+            margin-left: 1rem;
+        }
+    }
+}
+
