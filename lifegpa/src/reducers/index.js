@@ -4,7 +4,11 @@ import {
     FETCH_USER_FAILURE,
     FETCH_GOAL_START,
     FETCH_GOAL_SUCCESS,
-    FETCH_GOAL_FAILURE
+    FETCH_GOAL_FAILURE,
+    EDIT_DATA_START,
+    EDIT_DATA_SUCCESS,
+    EDIT_DATA_FAILURE,
+    UPDATE_HABIT_ID
 } from '../actions';
 
 const initialState = {
@@ -16,7 +20,8 @@ const initialState = {
     last_name: '',
     email: '',
     goal_name: '',
-    description: ''
+    description: '',
+    habit_id: ''
 }
 
 export const reducer = (state = initialState, action) => {
@@ -64,6 +69,36 @@ export const reducer = (state = initialState, action) => {
                 ...state,
                 isFetching: false,
                 error: action.payload
+            };
+        case EDIT_DATA_START:
+            return {
+                ...state,
+                error: '',
+                isFetching: true,
+            };
+        case EDIT_DATA_SUCCESS:
+            return {
+                ...state,
+                isFetching: false,
+                error: '',
+                id: '',
+                username: '',
+                first_name: '',
+                last_name: '',
+                email: '',
+                goal_name: '',
+                description: ''
+            };
+        case EDIT_DATA_FAILURE:
+            return {
+                ...state,
+                isFetching: false,
+                error: action.payload
+            }
+        case UPDATE_HABIT_ID:
+            return {
+                ...state,
+                habit_id: action.payload
             }
         default:
             return state;

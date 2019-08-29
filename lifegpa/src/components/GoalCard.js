@@ -1,12 +1,13 @@
 import React, { useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import { connect } from 'react-redux';
-import { fetchUser } from '../actions';
+import { fetchUser, updateHabitId } from '../actions';
 
 const GoalCard = (props) => {
 
     useEffect(() => {
         props.fetchUser(props.match.params.id);
+        props.updateHabitId(props.goal.habit_id)
     }, []);
 
     return (
@@ -36,8 +37,9 @@ const mapStateToProps = state => {
         username: state.username,
         first_name: state.first_name,
         last_name: state.last_name,
-        email: state.email
+        email: state.email,
+        habit_id: state.habit_id
     }
 }
 
-export default connect(mapStateToProps, { fetchUser })(GoalCard);
+export default connect(mapStateToProps, { fetchUser, updateHabitId })(GoalCard);

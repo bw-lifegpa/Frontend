@@ -1,10 +1,10 @@
-import React, { useState, useEffect } from 'react';
+import React from 'react';
 import { NavLink } from 'react-router-dom';
+import { connect } from 'react-redux';
 import './Advice.css';
 
 import Header from './Header';
 import Footer from './Footer';
-import axios from 'axios';
 import MagnifyingGlass from '../designfiles/magnifying-glass.png';
 import AskAProIcon from '../designfiles/ask-a-pro.png';
 import ArticlesIcon from '../designfiles/articles.png';
@@ -13,22 +13,8 @@ import FeaturedVideoPlaceholder from '../designfiles/featured-video-placeholder.
 import ForwardIcon from '../designfiles/forward-icon.png';
 import BackIcon from '../designfiles/back-icon.png';
 
-export default function Advice() {
-    const [userData, setUserData] = useState([]);
+function Advice(props) {
 
-    useEffect(() => {
-        axios
-            .get('https://reqres.in/api/users/2')
-            .then(response => {
-                setUserData(response.data.data);
-            })
-            .catch(error => {
-                console.error('Server Error', error);
-            })
-    }, []);
-
-    console.log(userData);
-    
     return (
         <div className="advice-container">
             <Header />
@@ -36,9 +22,8 @@ export default function Advice() {
                 <div className="advice-body">
                     <div className="advice-nav">
                         <div className="challenges-profile-mini">
-                            <img className="challenges-profile-picture" src={userData.avatar} />
                             <div className="challenges-profile-info">
-                                <h4>{`${userData.first_name} ${userData.last_name}`}</h4>
+                                <h4>{`${props.first_name} ${props.last_name}`}</h4>
                                 <h5>View Account</h5>
                             </div>
                         </div>
@@ -119,3 +104,17 @@ export default function Advice() {
         </div>
     )
 }
+
+const mapStateToProps = state => {
+    return {
+        error: state.error,
+        isFetching: state.isFetching,
+        id: state.id,
+        username: state.username,
+        first_name: state.first_name,
+        last_name: state.last_name,
+        email: state.email
+    }
+}
+
+export default connect(mapStateToProps, {})(Advice);
