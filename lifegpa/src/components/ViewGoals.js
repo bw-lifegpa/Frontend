@@ -1,22 +1,22 @@
 import React, { useState, useEffect } from 'react';
-import axios from 'axios';
-import { NavLink, Route, Router } from 'react-router-dom';
+import { axiosWithAuth } from '../utilities/axiosWithAuth';
 
 import Header from './Header';
+import Nav from './Nav';
 import Footer from './Footer';
 import GoalCard from './GoalCard';
 
 import './ViewGoals.css';
 
-const ViewGoals = ({ goalList }) => {
+const ViewGoals = (props) => {
     const [UserGoals, setUserGoals] = useState([])
 
     useEffect(() => {
-        axios.get(`https://lifegpa-api.herokuapp.com/habits/`)
+        axiosWithAuth()
+        .get(`https://lifegpa-api.herokuapp.com/users/${props.match.params.id}/habits`)
         .then( res => {
             console.log(res.data)
-            const goalList = res.data;
-            setUserGoals(goalList)
+            setUserGoals(res.data)
         })
         .catch(error => console.log(error.response.message))
     }, [])
@@ -25,14 +25,15 @@ const ViewGoals = ({ goalList }) => {
 return (
     <div>
         <Header />
+        <Nav user_id={props.match.params.id}/>
 
-        {UserGoals.map((goal, index) => {
+        {UserGoals ? UserGoals.map((goal, index) => {
             return (
                 <div key={index} className='goal-list'>
-                    <GoalCard goal={goal} id={goal.id} />
+                    <GoalCard {...props} goal={goal} id={goal.id} />
                 </div>
             )
-        })}
+        }) : () => {return <div/>}}
 
         <Footer />
     </div>

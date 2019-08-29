@@ -5,6 +5,7 @@ import { Link } from 'react-router-dom';
 import TrackDatePicker from './TrackDatePicker';
 import MiniDash from './MiniDash';
 import Header from './Header';
+import Nav from './Nav';
 import Footer from './Footer';
 
 import './TrackGoals.css'
@@ -16,6 +17,7 @@ export default function TrackGoals (props) {
         <>
         <div>
             <Header />
+            <Nav user_id={props.id}/>
         
             <div className='track-goals-container'>
             

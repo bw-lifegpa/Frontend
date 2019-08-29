@@ -1,79 +1,84 @@
-import React from 'react';
-import axios from 'axios';
-import { Form, Field, Formik, ErrorMessage } from 'formik';
+    
+import React, { useState } from "react";
+import { connect } from 'react-redux'
+import { editGoal, fetchGoal } from '../actions/index'
+import Header from './Header';
+import Nav from './Nav';
+import Footer from './Footer';
 
-const EditForm =({user, updateUser, onClose }) => {
-        // axiosWithAuth()
-        //     .put(`https://lifegpa-api.herokuapp.com/edit-goal/${goalToEdit.id}`, goalToEdit)
-        //     .then(res => {
-        //         console.log('save edit', res);
-        //         goals.map(goal => {
-        //             if(goal.id === res.data.id){
-        //                 return res.data;
-        //             }else{
-        //                 return goal;
-        //             }
-        //         })
-        //     })
-        //     .catch(eer => console.log(eer.message));
-    return(
-        <div className='edit-page' onSubmit={saveEdit}>
-            <Dialog onClose={onClose}>
-                <h2 className='edit-header'>Edit Me!</h2>
-                <Formik    
-                className='edit-form-field'
-                onSubmit={(values, actions) => {
-                axios.post(`https://lifegpa-api.herokuapp.com/goals/${user.id}`, values)
-                    .then( updateUser => {
-                        actions.setSubmitting(false);
-                        updateUser(updateUser);
-                        onClose();
-                    },
-                    err => {
-                        actions.setSubmitting(false);
-                        actions.setErrors(transformMyRestApiErrorsToAnObject(err));
-                        actions.setStatus({msg:'set some arbitrary status or data'})
-                    }
-                    );
-                }}
-                render={({ errors, touched, isSubmitting }) => (
-                    <Form>
-                        <Field type= 'text' name='edit' />
-                        <ErrorMessage name='edit' component='div'>
-                        </ErrorMessage>
-                        {touched.username && errors.username && <p>{errors.username}</p>}
-                        Username or Email: 
-                    <button className='button' type='submit' disable={isSubmitting}>Save</button>
 
-                    </Form>
-                )}
-                />
+function EditForm (props) {
+ const [goalState, setGoalState] = useState({
+    name: "",
+    description: "",
+  });
 
-            </Dialog>
+  const habit_id = parseInt(props.match.params.goal_id)
 
+  const changeHandler = e => {
+    e.preventDefault();
+    setGoalState({
+      ...goalState,
+      [e.target.name]: e.target.value
+    });
+  };
+
+  const editGoal = e => {
+    e.preventDefault();
+    props.editGoal(habit_id, goalState)
+    setGoalState({
+      name: '',
+      description: ''
+    })
+    props.history.push(`/goals/${props.match.params.id}`)
+  }
+
+  if (goalState){
+  return (
+        <div>
+            <Header/>
+            <Nav user_id={props.match.params.id}/>
+            <h1>Edit:</h1>
+              <form onSubmit={editGoal}>
+                <input 
+                      type="text"
+                      placeholder="goal name"
+                      name="name"
+                      value={goalState.name}
+                      onChange={changeHandler}
+                      />
+                  <input  
+                      type="text"
+                      placeholder="enter description"
+                      name="description"
+                      value={goalState.description}
+                      onChange={changeHandler}
+                      />   
+                    <button type="submit">
+                      Update Goal
+                    </button>
+                </form>
+            <Footer/>
         </div>
     )
+  }
+  return (
+      <div />
+  )
 }
 
-// const FormikEditForm = withRouter(withFormik({
-//     mapPropsToValues({ username }){
-//         return{
-//             username: username || '',
-//         };
-//     },
-//     validationSchema: yup.object().shape({
-//         username: yup.string().required('username is required'),
-        
-//     }),
-//     handleSubmit(users, {props}){
-//         axios.post('https://lifegpa-api.herokuapp.com/auth/', users)
-//         .then(res => {
-//             console.log('edit form', res)
-//             localStorage.setItem('token', res.data.token)
-//             props.history.push('/dashboard')
-//         })
-//         .catch(err => console.log(err))
-//     }
-// })(EditForm));
+const mapStateToProps = state => {
+  console.log(state)
+  return {
+    error: state.error,
+    isFetching: state.isFetching,
+    goal_name: state.goal_name,
+    description: state.description,
+    habit_id: state.habit_id
+  }
+}
 
-// export default FormikEditForm;
+export default connect(
+    mapStateToProps,
+    { fetchGoal, editGoal }
+)(EditForm)

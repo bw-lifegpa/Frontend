@@ -11,11 +11,13 @@ import PrivateRoute from "./components/PrivateRoute";
 import FormikSignUpForm from "./components/SignUpForm";
 import FormikNewGoalForm from './components/NewGoalForm';
 import ViewGoals from './components/ViewGoals';
-import TrackGoals from './components/TrackGoals';
+import EditForm from './components/EditForm';
+import TrackGoals from './components/TrackGoals'
 // Styling
 import "./App.css";
 
 function App() {
+
   return (
       <div className="App">
         {/* Hamburger Menu Nav */}
@@ -27,7 +29,7 @@ function App() {
         <PrivateRoute exact path='/dashboard/:id' component={Dashboard} />
         <PrivateRoute exact path='/track/:id' component={TrackGoals} />
         <PrivateRoute exact path='/goals/:id' component={ViewGoals} />
-        {/* <PrivateRoute exact path='/edit/:id/:goal_id' component={EditGoals} /> */}
+        <PrivateRoute exact path='/edit/:id/:goal_id' component={EditForm} />
         <PrivateRoute exact path='/create/:id' component={FormikNewGoalForm} />
         <PrivateRoute exact path='/challenges/:id' component={Challenges} />
         <PrivateRoute exact path='/advice/:id' component={Advice} />
