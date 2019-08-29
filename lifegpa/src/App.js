@@ -3,6 +3,7 @@ import React from "react";
 import { Route } from "react-router-dom";
 // Components
 import FormikLogin from "./components/Login";
+import Nav from "./components/Nav";
 import Advice from "./components/Advice";
 import Dashboard from "./components/Dashboard";
 import Challenges from "./components/Challenges";
@@ -17,6 +18,8 @@ import "./App.css";
 function App() {
   return (
       <div className="App">
+        {/* Hamburger Menu Nav */}
+        <Nav />
         {/* Public Routes */}
         <Route exact path='/' component={FormikLogin} />
         <Route exact path='/register' component={FormikSignUpForm} />
@@ -27,7 +30,7 @@ function App() {
         {/* <PrivateRoute exact path='/edit/:id/:goal_id' component={EditGoals} /> */}
         <PrivateRoute exact path='/create/:id' component={FormikNewGoalForm} />
         <PrivateRoute exact path='/challenges/:id' component={Challenges} />
-        {/* <PrivateRoute exact path='/advice/:id' component={Advice} /> */}
+        <PrivateRoute exact path='/advice/:id' component={Advice} />
       </div>
   );
 }
