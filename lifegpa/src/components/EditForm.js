@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import { connect } from 'react-redux'
-import { editGoal, fetchGoal } from '../store/actions'
+import { editGoal, fetchGoal } from '../actions/index'
 
 
 function EditForm (props) {
@@ -25,11 +25,9 @@ function EditForm (props) {
     })
   }
 
-  console.log(props.goal.id)
-
   return (
       <>
-          <div >{props.goal.title}</div>
+          <div >{props.goal.name}</div>
           <div>{props.goal.goal}</div>
           <div>
               <input 
@@ -40,7 +38,7 @@ function EditForm (props) {
           </div>
           <div>
             <button>Edit</button>
-              <Form>
+              <form>
                 <input 
                       type="text"
                       placeholder="goal name"
@@ -58,7 +56,7 @@ function EditForm (props) {
                     <button onClick={editGoal}>
                       Update Goal
                     </button>
-                </Form>
+                </form>
         </div>
         </>
     )

@@ -6,6 +6,7 @@ import {
     FETCH_GOAL_SUCCESS,
     FETCH_GOAL_FAILURE
  } from '../actions';
+ 
  const initialState = {
     isFetching: false,
     error: '',
