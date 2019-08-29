@@ -6,12 +6,15 @@ import { axiosWithAuth } from '../utilities/axiosWithAuth'
 
 import Header from './Header';
 import Footer from './Footer';
+import Nav from './Nav';
 
-function NewGoalForm({ values, errors, touched, isSubmitting }) {
+function NewGoalForm({ match, errors, touched, isSubmitting }) {
 
     return (
       <div className="container">
+
       <Header/>
+      <Nav user_id={match.params.id} />
       <Form>
         <label>Create a Goal</label>
         <div className="goal-name">

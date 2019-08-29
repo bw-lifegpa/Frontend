@@ -19,8 +19,8 @@ const Dashboard = (props) => {
     
     return (
         <div className="dashboard-container">
-            <Nav user_id={props.id}/>
             <Header />
+            <Nav user_id={props.id}/>
             <div className="body">
                 <DashboardProfile
                     first_name={props.first_name}
