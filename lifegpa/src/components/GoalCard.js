@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react';
+import React, { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import { connect } from 'react-redux';
 import { fetchUser, updateHabitId, fetchUserCompletedHabits } from '../actions';
@@ -6,11 +6,21 @@ import { axiosWithAuth } from '../utilities/axiosWithAuth';
 import moment from 'moment';
 
 const GoalCard = props => {
+  const [completedGoals, setCompletedGoals] = useState([]);
+
   useEffect(() => {
     props.fetchUser(props.match.params.id);
     props.updateHabitId(props.goal.habit_id);
     props.fetchUserCompletedHabits(props.match.params.id);
   }, []);
+
+  useEffect(
+    () =>
+      setCompletedGoals(
+        props.completed.filter(habit => habit.habit_id === props.goal.habit_id)
+      ),
+    [props.completed]
+  );
 
   const deleteHandler = e => {
     e.preventDefault();
@@ -45,20 +55,30 @@ const GoalCard = props => {
         <h3>{props.goal.description}</h3>
       </div>
 
-      <div>
+      <div className='goal-info'>
+        <h4>Goal completed {completedGoals.length} times</h4>
         <div className='goal-details'>
-          <h4>
-            Goal completed{' '}
-            {props.completed.length
-              ? props.completed.filter(
-                  habit => habit.habit_id === props.goal.habit_id
-                ).length
-              : '0'}{' '}
-            times
-          </h4>
-          <h5>
-            started on {moment(props.goal.start_date).format('MMMM Do, YYYY')}
-          </h5>
+          <div className='last-completed'>
+            <div>Last completed</div>
+            <h5>
+              {completedGoals.length
+                ? moment(
+                    completedGoals.reduce((a, habit) =>
+                      a.id > habit.id ? a : habit
+                    ).completed_at
+                  ).format('MMMM Do, [at] LT')
+                : 'fetching...'}
+            </h5>
+          </div>
+          <div className='start-end'>
+            <div>started</div>
+            <h5>{moment(props.goal.start_date).format('MMMM Do, YYYY')}</h5>
+            {props.goal.end_date
+              ? `
+            ends
+            <h5>${moment(props.goal.end_date).format('MMMM Do, YYYY')}</h5>`
+              : ''}
+          </div>
         </div>
 
         <div className='button-container'>
