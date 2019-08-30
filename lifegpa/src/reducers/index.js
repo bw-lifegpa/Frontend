@@ -5,6 +5,9 @@ import {
   FETCH_GOAL_START,
   FETCH_GOAL_SUCCESS,
   FETCH_GOAL_FAILURE,
+  FETCH_USER_GOALS_START,
+  FETCH_USER_GOALS_SUCCESS,
+  FETCH_USER_GOALS_FAILURE,
   EDIT_DATA_START,
   EDIT_DATA_SUCCESS,
   EDIT_DATA_FAILURE,
@@ -26,7 +29,8 @@ const initialState = {
   description: '',
   habit_id: '',
   created_at: '',
-  completed: []
+  completed: [],
+  user_goals: []
 };
 
 export const reducer = (state = initialState, action) => {
@@ -69,6 +73,21 @@ export const reducer = (state = initialState, action) => {
         email: action.payload.email
       };
     case FETCH_USER_FAILURE:
+      return {
+        ...state,
+        isFetching: false,
+        error: action.payload
+      };
+    case FETCH_USER_GOALS_START:
+      return { ...state, error: '', isFetching: true };
+    case FETCH_USER_GOALS_SUCCESS:
+      return {
+        ...state,
+        error: '',
+        isFetching: false,
+        user_goals: action.payload
+      };
+    case FETCH_USER_GOALS_FAILURE:
       return {
         ...state,
         isFetching: false,

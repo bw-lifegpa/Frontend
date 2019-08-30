@@ -34,6 +34,26 @@ export const fetchGoal = goal_id => dispatch => {
     });
 };
 
+export const FETCH_USER_GOALS_START = 'FETCH_USER_GOALS_START';
+export const FETCH_USER_GOALS_SUCCESS = 'FETCH_USER_GOALS_SUCCESS';
+export const FETCH_USER_GOALS_FAILURE = 'FETCH_USER_GOALS_FAILURE';
+
+export const fetchUserGoals = user_id => dispatch => {
+  dispatch({ type: FETCH_USER_GOALS_START });
+  axiosWithAuth()
+    .get(`https://lifegpa-api.herokuapp.com/users/${user_id}/habits`)
+    .then(res => {
+      console.log(res.data);
+      dispatch({ type: FETCH_USER_GOALS_SUCCESS, payload: res.data });
+    })
+    .catch(err => {
+      dispatch({
+        type: FETCH_USER_GOALS_FAILURE,
+        payload: 'Unable to load Goal'
+      });
+    });
+};
+
 export const EDIT_DATA_START = 'EDIT_DATA_START';
 export const EDIT_DATA_SUCCESS = 'EDIT_DATA_SUCCESS';
 export const EDIT_DATA_FAILURE = 'EDIT_DATA_FAILURE';
