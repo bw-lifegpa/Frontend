@@ -1,44 +1,120 @@
 .goal-container {
-    box-shadow: 
-    0 3px 6px rgba(0,0,0,0.16), 
-    0 3px 6px rgba(0,0,0,0.23);
-    width: 45%;
-    border-radius: 10px;
-    padding: 20px;
-    margin: 20px;
-    margin-left: 40px;
-    background: #f1f1f1;
-    justify-content: center;
-    align-items:center;
+  box-shadow: 0 3px 6px rgba(0, 0, 0, 0.16), 0 3px 6px rgba(0, 0, 0, 0.23);
+  width: 440px;
+  border-radius: 10px;
+  padding: 15px 20px;
+  margin: 20px;
+  max-height: 300px;
+  background: #f1f1f1;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: stretch;
+}
+
+.goal-container h1 {
+  margin: 5px 0 10px 0;
+}
+.goal-container h3 {
+  margin: 5px 0;
+  font-weight: 400;
 }
 
 .button-container {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    width: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
 }
 
-.edit {
-    margin: 0;
+.button-container button {
+  margin: 0;
+  cursor: pointer;
+  outline: none;
+}
+
+.button-container button:hover {
+  opacity: 0.7;
+}
+
+.edit-buttons {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
+
+.edit-buttons > button:last-child {
+  background-color: maroon;
+}
+
+.edit-buttons button {
+  width: 100px;
+}
+
+.mark-complete {
+  width: 200px;
+  margin: 0;
+  font-size: 20px;
 }
 
 .create-new-goal {
-    display: flex;
-    align-items: center;
-    margin: 0 0 2rem 2rem;
+  display: flex;
+  align-items: center;
+  margin: 1rem 0 2rem 2rem;
+  font-size: 20px;
 }
 
 .create-new-goal h3 {
-    margin: 0 0 0 1rem;
+  margin: 0 0 0 1rem;
 }
 
 .viewgoals-title {
-    margin-top: 0;
-    margin-left: 2rem;
-    padding-top: 2rem;
+  margin-top: 0;
+  margin-left: 2rem;
+  padding-top: 2rem;
 }
 
 .viewgoals-body {
-    height: 80vh;
+  height: 100%;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  max-width: 1000px;
+}
+
+.goal-details {
+  margin: 5px 0;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: flex-end;
+}
+
+.goal-details h4,
+.goal-details h5 {
+  display: inline-block;
+  margin: 0;
+  font-weight: 200;
+}
+
+.goal-details h4 {
+  margin-bottom: 10px;
+}
+
+.goal-details h5 {
+  opacity: 0.7;
+}
+
+.start-end {
+  font-weight: 200;
+  font-size: 12px;
+  text-align: right;
+}
+
+.last-completed {
+  font-size: 12px;
+  font-weight: 200;
+}
+
+.last-completed h5 {
+  font-size: 14px;
 }
