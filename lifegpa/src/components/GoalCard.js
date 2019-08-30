@@ -15,10 +15,11 @@ const GoalCard = props => {
   }, []);
 
   useEffect(
-    () =>
+    () => {
+      props.completed.length > 1 ?
       setCompletedGoals(
         props.completed.filter(habit => habit.habit_id === props.goal.habit_id)
-      ),
+      ) : setCompletedGoals([])},
     [props.completed]
   );
 
@@ -67,7 +68,7 @@ const GoalCard = props => {
                       a.id > habit.id ? a : habit
                     ).completed_at
                   ).format('MMMM Do, [at] LT')
-                : 'fetching...'}
+                : 'N/A'}
             </h5>
           </div>
           <div className='start-end'>
