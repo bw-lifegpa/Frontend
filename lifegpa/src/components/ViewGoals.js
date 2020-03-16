@@ -1,5 +1,5 @@
-import React, { useState, useEffect } from 'react';
-import { axiosWithAuth } from '../utilities/axiosWithAuth';
+import React, { useEffect } from 'react';
+import { connect } from 'react-redux';
 import { Link } from 'react-router-dom';
 
 import Header from './Header';
@@ -7,68 +7,66 @@ import Nav from './Nav';
 import Footer from './Footer';
 import GoalCard from './GoalCard';
 
+import { fetchUserGoals } from '../actions';
+
 import './ViewGoals.css';
-import {FaPlusCircle} from 'react-icons/fa';
+import { FaPlusCircle } from 'react-icons/fa';
 
-const ViewGoals = (props) => {
-    const [UserGoals, setUserGoals] = useState([])
+const ViewGoals = props => {
+  useEffect(() => {
+    props.fetchUserGoals(props.match.params.id);
+  }, []);
 
-    useEffect(() => {
-        axiosWithAuth()
-        .get(`https://lifegpa-api.herokuapp.com/users/${props.match.params.id}/habits`)
-        .then( res => {
-            console.log(res.data)
-            setUserGoals(res.data)
-        })
-        .catch(error => console.log(error.response.message))
-    }, [])
-
-console.log(UserGoals.length)
-
-if (UserGoals.length === 0) {
+  if (props.user_goals === 0) {
     return (
-        <div>
+      <div>
         <Header />
-        <Nav user_id={props.match.params.id}/>
+        <Nav user_id={props.match.params.id} />
         <div>
-            <h1>Please Create Goals to Begin Tracking</h1>
-            <Link to={`/create/${props.match.params.id}`}>
-                        <FaPlusCircle/><h3>Create New Goal</h3>
-                    </Link>
+          <h1>Please Create Goals to Begin Tracking</h1>
+          <Link to={`/create/${props.match.params.id}`}>
+            <FaPlusCircle />
+            <h3>Create New Goal</h3>
+          </Link>
         </div>
         <Footer />
-    </div>
-    )
- }
+      </div>
+    );
+  }
 
-return (
-    
+  return (
     <div>
-        <Header />
-        <h1>Goals</h1>
-        <Nav user_id={props.match.params.id}/>
+      <Header />
+      <Nav user_id={props.match.params.id} />
+      <h1 className='viewgoals-title'>Goals</h1>
+      <div className='viewgoals-body'>
+        {props.user_goals.length >= 1
+          ? props.user_goals.map((goal, index) => {
+              return (
+                <GoalCard {...props} goal={goal} id={goal.id} key={index} />
+              );
+            })
+          : () => {
+              return <div></div>;
+            }}
+      </div>
 
-        {UserGoals.length >= 1 ? UserGoals.map((goal, index) => {
-            return (
-                <div key={index} className='goal-list'>
-                    <GoalCard {...props} goal={goal} id={goal.id} />
-                </div>
-            )
-        }) : 
-        () => { 
-            return (
-             <div>
-  
-            </div>)}}
-  
-<Link to={`/create/${props.match.params.id}`}>
-                        <FaPlusCircle/><h3>Create New Goal</h3>
-                    </Link>
-
-        <Footer />
+      <Link className='create-new-goal' to={`/create/${props.match.params.id}`}>
+        <FaPlusCircle />
+        <h3>Create New Goal</h3>
+      </Link>
+      <Footer />
     </div>
-)
+  );
+};
 
-}
+const mapStateToProps = state => {
+  return {
+    user_goals: state.user_goals
+  };
+};
 
-export default ViewGoals;
+export default connect(
+  mapStateToProps,
+  { fetchUserGoals }
+)(ViewGoals);
