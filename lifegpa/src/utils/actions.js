@@ -7,7 +7,7 @@ export const FETCH_USER_FAILURE = "FETCH_USER_FAILURE";
 export const fetchUser = user_id => dispatch => {
 	dispatch({ type: FETCH_USER_START });
 	axiosWithAuth()
-		.get(`https://lifegpa-api.herokuapp.com/users/${user_id}`)
+		.get(`/users/${user_id}`)
 		.then(res => {
 			console.log(res);
 			dispatch({ type: FETCH_USER_SUCCESS, payload: res.data });
@@ -27,7 +27,7 @@ export const FETCH_GOAL_FAILURE = "FETCH_GOAL_FAILURE";
 export const fetchGoal = goal_id => dispatch => {
 	dispatch({ type: FETCH_GOAL_START });
 	axiosWithAuth()
-		.get(`https://lifegpa-api.herokuapp.com/habits/${goal_id}`)
+		.get(`/habits/${goal_id}`)
 		.then(res => {
 			console.log(res);
 			dispatch({ type: FETCH_GOAL_SUCCESS, payload: res.data });
@@ -47,7 +47,7 @@ export const FETCH_USER_GOALS_FAILURE = "FETCH_USER_GOALS_FAILURE";
 export const fetchUserGoals = user_id => dispatch => {
 	dispatch({ type: FETCH_USER_GOALS_START });
 	axiosWithAuth()
-		.get(`https://lifegpa-api.herokuapp.com/users/${user_id}/habits`)
+		.get(`/users/${user_id}/habits`)
 		.then(res => {
 			console.log(res.data);
 			dispatch({ type: FETCH_USER_GOALS_SUCCESS, payload: res.data });
@@ -68,7 +68,7 @@ export const editGoal = (habit_id, editedGoal) => dispatch => {
 	dispatch({ type: EDIT_DATA_START });
 	console.log(editedGoal);
 	axiosWithAuth()
-		.put(`https://lifegpa-api.herokuapp.com/habits/${habit_id}`, editedGoal)
+		.put(`/habits/${habit_id}`, editedGoal)
 		.then(res => {
 			console.log(res);
 			dispatch({ type: EDIT_DATA_SUCCESS });
@@ -90,9 +90,7 @@ export const fetchUserCompletedHabits = (user_id, habit_id) => dispatch => {
 	dispatch({ type: FETCH_COMPLETED_HABITS_START });
 	if (!habit_id) habit_id = "";
 	axiosWithAuth()
-		.get(
-			`https://lifegpa-api.herokuapp.com/users/${user_id}/habits/completed/${habit_id}`
-		)
+		.get(`/users/${user_id}/habits/completed/${habit_id}`)
 		.then(res => {
 			console.log(res);
 			dispatch({

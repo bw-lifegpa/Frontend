@@ -8,30 +8,37 @@ import Dashboard from "./components/Dashboard";
 import Challenges from "./components/Challenges";
 import PrivateRoute from "./components/PrivateRoute";
 import FormikSignUpForm from "./components/SignUpForm";
-import FormikNewGoalForm from './components/NewGoalForm';
-import ViewGoals from './components/ViewGoals';
-import EditForm from './components/EditForm';
-import TrackGoals from './components/TrackGoals'
+import FormikNewGoalForm from "./components/NewGoalForm";
+import ViewGoals from "./components/ViewGoals";
+import EditForm from "./components/EditForm";
+import TrackGoals from "./components/TrackGoals";
 // Styling
-import "./App.css";
+import "./App.scss";
 
 function App() {
-
-  return (
-      <div className="App">
-        {/* Public Routes */}
-        <Route exact path='/' component={FormikLogin} />
-        <Route exact path='/register' component={FormikSignUpForm} />
-        {/* Private Routes */}
-        <PrivateRoute exact path='/dashboard/:id' component={Dashboard} />
-        <PrivateRoute exact path='/track/:id' component={TrackGoals} />
-        <PrivateRoute exact path='/goals/:id' component={ViewGoals} />
-        <PrivateRoute exact path='/edit/:id/:goal_id' component={EditForm} />
-        <PrivateRoute exact path='/create/:id' component={FormikNewGoalForm} />
-        <PrivateRoute exact path='/challenges/:id' component={Challenges} />
-        <PrivateRoute exact path='/advice/:id' component={Advice} />
-      </div>
-  );
+	return (
+		<div className="App">
+			{/* Public Routes */}
+			<Route exact path="/" component={FormikLogin} />
+			<Route exact path="/register" component={FormikSignUpForm} />
+			{/* Private Routes */}
+			<PrivateRoute exact path="/dashboard/:id" component={Dashboard} />
+			<PrivateRoute exact path="/track/:id" component={TrackGoals} />
+			<PrivateRoute exact path="/goals/:id" component={ViewGoals} />
+			<PrivateRoute
+				exact
+				path="/edit/:id/:goal_id"
+				component={EditForm}
+			/>
+			<PrivateRoute
+				exact
+				path="/create/:id"
+				component={FormikNewGoalForm}
+			/>
+			<PrivateRoute exact path="/challenges/:id" component={Challenges} />
+			<PrivateRoute exact path="/advice/:id" component={Advice} />
+		</div>
+	);
 }
 
 export default App;
