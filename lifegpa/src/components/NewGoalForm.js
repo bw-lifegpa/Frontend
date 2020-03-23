@@ -7,13 +7,10 @@ import { axiosWithAuth } from "../utils/axiosWithAuth";
 import "./NewGoalForm.css";
 
 import Nav from "./Nav";
-import Header from "./Header";
-import Footer from "./Footer";
 
 function NewGoalForm({ match, errors, touched, isSubmitting }) {
 	return (
 		<div className="container">
-			<Header />
 			<Nav user_id={match.params.id} />
 			<Form>
 				<label>Create a Goal </label>
@@ -67,7 +64,6 @@ function NewGoalForm({ match, errors, touched, isSubmitting }) {
 					</button>
 				</div>
 			</Form>
-			<Footer />
 		</div>
 	);
 }

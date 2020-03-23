@@ -1,24 +1,22 @@
 import React, { useEffect } from "react";
-import "./Dashboard.css";
 
-import Header from "./Header";
-import Nav from "./Nav";
-import DashboardButtons from "./DashboardButtons";
-import DashboardProfile from "./DashboardProfile";
-import MiniDash from "./MiniDash";
-import Footer from "./Footer";
+import Nav from "../components/Nav";
+import DashboardButtons from "../components/DashboardButtons";
+import DashboardProfile from "../components/DashboardProfile";
+import MiniDash from "../components/MiniDash";
 import { connect } from "react-redux";
 import { fetchUser } from "../utils/actions";
+
+import "./pages.scss";
 
 const Dashboard = props => {
 	useEffect(() => {
 		props.fetchUser(props.match.params.id);
 	}, []);
-	console.log(props);
+	console.log("props", props);
 
 	return (
 		<div className="dashboard-container">
-			<Header />
 			<Nav user_id={props.id} />
 			<div className="body">
 				<DashboardProfile
@@ -30,7 +28,6 @@ const Dashboard = props => {
 					<DashboardButtons />
 				</div>
 			</div>
-			<Footer />
 		</div>
 	);
 };

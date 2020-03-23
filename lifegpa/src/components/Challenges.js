@@ -3,16 +3,13 @@ import { NavLink } from "react-router-dom";
 import "./Challenges.css";
 import { connect } from "react-redux";
 
-import Header from "./Header";
 import Nav from "./Nav";
-import Footer from "./Footer";
 import Eye from "../assets/eye-img.png";
 import MagnifyingGlass from "../assets/magnifying-glass.png";
 
 function Challenges(props) {
 	return (
 		<div className="challenges-container">
-			<Header />
 			<Nav user_id={props.id} />
 			<div className="body">
 				<div className="challenges active">
@@ -64,7 +61,6 @@ function Challenges(props) {
 					</div>
 				</div>
 			</div>
-			<Footer />
 		</div>
 	);
 }

@@ -2,9 +2,7 @@ import React, { useEffect } from "react";
 import { connect } from "react-redux";
 import { Link } from "react-router-dom";
 
-import Header from "./Header";
 import Nav from "./Nav";
-import Footer from "./Footer";
 import GoalCard from "./GoalCard";
 
 import { fetchUserGoals } from "../utils/actions";
@@ -20,7 +18,6 @@ const ViewGoals = props => {
 	if (props.user_goals === 0) {
 		return (
 			<div>
-				<Header />
 				<Nav user_id={props.match.params.id} />
 				<div>
 					<h1>Please Create Goals to Begin Tracking</h1>
@@ -29,14 +26,12 @@ const ViewGoals = props => {
 						<h3>Create New Goal</h3>
 					</Link>
 				</div>
-				<Footer />
 			</div>
 		);
 	}
 
 	return (
 		<div>
-			<Header />
 			<Nav user_id={props.match.params.id} />
 			<h1 className="viewgoals-title">Goals</h1>
 			<div className="viewgoals-body">
@@ -63,7 +58,6 @@ const ViewGoals = props => {
 				<FaPlusCircle />
 				<h3>Create New Goal</h3>
 			</Link>
-			<Footer />
 		</div>
 	);
 };

@@ -1,0 +1,31 @@
+@mixin flex($content, $direction) {
+	display: flex;
+	justify-content: $content;
+	flex-direction: $direction;
+}
+.header {
+	padding-top: 1%;
+	background-color: #fae9c6;
+	@include flex(space-around, row);
+}
+
+.footer {
+	@include flex(space-between, row);
+	background-color: #fae9c6;
+	color: black;
+	text-align: center;
+	.footer-left {
+		@include flex(flex-start, column);
+	}
+	.footer-right {
+		@include flex(flex-start, column);
+	}
+	.footer a {
+		color: black;
+		text-decoration: underline;
+		text-underline-position: under;
+	}
+	.footer a:visited {
+		text-decoration: none;
+	}
+}

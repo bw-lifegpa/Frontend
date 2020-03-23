@@ -1,5 +1,5 @@
 import React from "react";
-import "./Header.css";
+import "./pages.scss";
 
 import Logo from "../assets/lifegpa-logo.png";
 import SignOut from "../assets/sign-out-icon.png";
@@ -14,16 +14,10 @@ function Header(props) {
 
 	return (
 		<div className="header">
-			<div className="header-icons">
-				<Link to={`/dashboard/${props.id}`}>
-					<img className="logo" src={Logo} />
-				</Link>
-				<img
-					className="sign-out"
-					src={SignOut}
-					onClick={signOutHandler}
-				/>
-			</div>
+			<Link to={`/dashboard/${props.id}`}>
+				<img src={Logo} />
+			</Link>
+			<img src={SignOut} onClick={signOutHandler} />
 		</div>
 	);
 }

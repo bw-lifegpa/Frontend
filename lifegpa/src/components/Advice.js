@@ -3,9 +3,7 @@ import { NavLink } from "react-router-dom";
 import { connect } from "react-redux";
 import "./Advice.css";
 
-import Header from "./Header";
 import Nav from "./Nav";
-import Footer from "./Footer";
 import MagnifyingGlass from "../assets/magnifying-glass.png";
 import AskAProIcon from "../assets/ask-a-pro.png";
 import ArticlesIcon from "../assets/articles.png";
@@ -17,7 +15,6 @@ import BackIcon from "../assets/back-icon.png";
 function Advice(props) {
 	return (
 		<div className="advice-container">
-			<Header />
 			<Nav user_id={props.id} />
 			<div className="body">
 				<div className="advice-body">
@@ -108,7 +105,6 @@ function Advice(props) {
 					</div>
 				</div>
 			</div>
-			<Footer />
 		</div>
 	);
 }
